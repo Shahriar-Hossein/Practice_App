@@ -1,0 +1,16 @@
+<h1>Edit Comment</h1>
+<% #render "form", comment: @comment %>
+
+<%= form_with model: [ @post, @comment]   do |form| %>
+  <p>
+    <%= hidden_field :commenter, value: current_user.email %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+

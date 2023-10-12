@@ -1,0 +1,29 @@
+
+<h1><%= @post.title %></h1>
+<h3>Written by <%= @user.email %> </h3>
+
+<p><%= @post.body %></p>
+
+<% #if current_user == @post.user_id %>
+<% if can? :update, @post %>
+  <ul>
+    <li><%= link_to "Edit", edit_post_path(@post) %></li>
+    <li><%= link_to "Delete", post_path(@post), data: {
+      turbo_method: :delete,
+      turbo_confirm: "Are you sure?"
+    } %></li>
+  </ul>
+<% end %>
+<br>
+
+<h2>Comments</h2>
+<%#= raise @post.comments.inspect %>
+  <%= render @post.comments %>
+
+
+
+<% if can? :create, Comment %>
+  <h2>Add a comment:</h2>
+  <%= render 'comments/form' %>
+  <br><br>
+<% end %>

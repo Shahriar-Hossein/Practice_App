@@ -1,0 +1,18 @@
+<h1>Posts </h1>
+
+<% if can? :create, Post %>
+  <div style="text-decoration:none">
+    <button type="button" ><%= link_to "new Post", new_post_path %> </button>
+  </div>
+<% end %>
+
+<ul>
+  <% @posts.each do |p| %>
+  <li>
+    <%= link_to p.title, p %>
+  </li>
+  <% end %>
+</ul>
+
+<% # link_to 'Home', root_path %>
+

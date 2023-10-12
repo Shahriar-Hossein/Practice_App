@@ -1,0 +1,27 @@
+<table >
+  <!--<strong>Comment:</strong> -->
+  <tr>
+    <td style="background-color: lightgrey" width="400px" colspan="2">
+    <strong><%= comment.commenter %> </strong>
+    <br>
+    <%= comment.body %>
+    </td>
+  </tr>
+  <tr >
+    <td align="center" >
+      <% if can? :update, comment %>
+        <%= link_to 'Edit', edit_post_comment_path(comment.post,comment) %>
+      <% end %>
+    </td>
+    <td >
+      <% if can? :destroy, comment %>
+        <%= link_to 'Delete',
+                    [comment.post, comment], data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+          }
+        %>
+      <% end  %>
+    </td>
+  </tr>
+</table>

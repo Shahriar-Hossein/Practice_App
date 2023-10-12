@@ -1,0 +1,24 @@
+<nav>
+  <h2 class="logo">ParameterIT </h2>
+  <ul class="menu-items">
+    <li > <%= link_to '<button type="button">HOME</button>'.html_safe, root_path %>  </li>
+    <li > <%= link_to '<button type="button">Posts</button>'.html_safe,posts_path%>  </li>
+  </ul>
+  <ul class="cta-btns">
+    <% if user_signed_in? %>
+      <li>
+         <p class="navbar-mail" >
+           <%=  current_user.email %>
+         </p>
+      </li>
+      <li>
+        <%= link_to '<button type="button">Logout</button>'.html_safe, destroy_user_session_path , data: { turbo_method: :delete }  %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to '<button type="button">Sign in</button>'.html_safe, new_user_session_path %>
+      </li>
+    <% end %>
+  </ul>
+
+</nav>

@@ -1,0 +1,47 @@
+.logo{
+    border: white;
+    background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 30%, rgba(0,212,255,1) 100%);
+    font-size: 1.5rem;
+    color : lightblue;
+}
+
+nav,
+.cta-btns,
+.menu-items{
+    display: flex;
+    align-items: center;
+}
+
+nav{
+    margin: 0 0 0 0;
+    width: 100%;
+    justify-content: space-between;
+    background-color: darkslateblue;
+}
+
+.logos-section{
+    display: flex;
+
+}
+
+.menu-items li,
+.cta-btns li{
+    font-size: 0.7rem;
+    margin-right: 1rem;
+    color: hsl(0,0%,41%);
+}
+
+.cta-btns li:nth-last-child(1){
+    /* make border around the button */
+    /*  border: 1px solid gray; */
+    padding: 0.2rem 0.7rem;
+    border-radius: 0.3rem;
+}
+.cta-btns {
+    display: flex;
+    /*flex-direction: column;*/
+}
+.navbar-mail{
+    color: white;
+    /*font-size: medium;*/
+}
