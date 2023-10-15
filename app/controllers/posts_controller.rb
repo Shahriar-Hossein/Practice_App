@@ -18,12 +18,17 @@ class PostsController < ApplicationController
   end
 
   def create
+    #temp
     @post = current_user.posts.new(post_params)
     if @post.save
       redirect_to @post
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def temp
+    #raise 'hi'
   end
 
   def edit
