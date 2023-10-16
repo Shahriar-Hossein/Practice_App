@@ -1,13 +1,25 @@
-# class UsersController < ApplicationController
-#
-#   before_action :set_user, only[:show, :edit, :update]
+ class UsersController < ApplicationController
+   before_action :authenticate_user!
+   load_and_authorize_resource
+ #   before_action :set_user, only[:show, :edit, :update]
 #
 #   def index
 #     @users = User.all
 #   end
 #
-#   def show; end
-#
+   def show
+     # raise params.inspect
+     # raise current_user.inspect
+     @user = User.find(params[:id])
+      # raise @user.inspect
+     # authorize! :read, @user
+     # unless current_user.id == @user.id
+     #   redirect_to root_path, :alert => "Access denied."
+     # end
+
+   end
+
+
 #   def edit; end
 #
 #   def update
@@ -51,4 +63,4 @@
 #   end
 #
 #
-# end
+end
