@@ -14,6 +14,17 @@
   </div>
 
   <div class="field">
+    <%= f.label :contact_number %><br />
+    <%= f.text_field :contact_number, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.radio_button :gender, 'Male', autofocus: true %> Male <br>
+    <%= f.radio_button :gender, 'Female', autofocus: true %> Female
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
