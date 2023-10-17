@@ -8,7 +8,7 @@ class Ability
     can :read, Post
     can :read, Comment
     return unless user.present?
-    can :manage, User, user: user
+    can :read, User, :user_id => user.id
     # can :read, User, user_id => user.id
     # raise user_id.inspect
     # can :read, User do |u|

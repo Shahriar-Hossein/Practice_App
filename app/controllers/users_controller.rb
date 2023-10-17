@@ -11,6 +11,7 @@
      # raise params.inspect
      # raise current_user.inspect
      @user = User.find(params[:id])
+     authorize! :read, @user.id
       # raise @user.inspect
      # authorize! :read, @user
      # unless current_user.id == @user.id
