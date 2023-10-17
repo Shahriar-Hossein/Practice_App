@@ -7,7 +7,7 @@ class User < ApplicationRecord
   # association with other classes
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
-
+  has_one_attached :image
   # validation for user information
   # validating name , it can not
   # contain any special characters
@@ -38,5 +38,7 @@ class User < ApplicationRecord
               message: 'only numbers are allowed'
             }
   validates :gender, presence: true
+
+  validates :image, attached: true
 
 end

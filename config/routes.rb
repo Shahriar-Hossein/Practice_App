@@ -9,8 +9,10 @@ Rails.application.routes.draw do
               {
                 registrations: 'users/registrations'
               }
+
+    # get 'user/profile', to: 'users/registrations#show'
   devise_scope :user do
-    get 'users/:id/profile', to:'users/registrations#show'
+    get 'user/profile', to: 'users/registrations#show'
   end
   # resource :users, only: [:show]
   # resources :posts

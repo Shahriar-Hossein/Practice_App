@@ -1,1 +1,15 @@
-<h2><%= @user.name %></h2>
+<br>
+
+<h1>User Profile &nbsp;&nbsp; <%= link_to " Edit Profile ", edit_user_registration_path  %> </h1>
+<%#= link_to " Edit Profile ", edit_user_registration_path  %>
+<% u = current_user %>
+
+<h3> Profile Picture </h3>
+<%= image_tag current_user.image, height: '200', width: '150'  %>
+  <h3> First Name:  <%= u.name %></h3>
+  <h3> Last Name:  <%= u.lastName %> </h3>
+  <h3> Gender:  <%= u.gender %> </h3>
+  <h3> Contact Number:  <%= u.contact_number %> </h3>
+  <h3> Email: <%= u.email %> </h3>
+
+
