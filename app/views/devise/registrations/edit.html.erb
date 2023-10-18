@@ -25,6 +25,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :DateOfBirth %><br />
+    <%= f.date_field :date_of_birth, autofocus: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :image %><br />
     <%= f.file_field :image,accept: 'image/png, image/jpeg, image/jpg', autofocus: true %>  <br>
   </div>
