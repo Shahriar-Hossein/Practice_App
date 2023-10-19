@@ -8,7 +8,8 @@
     <% if user_signed_in? %>
       <li>
          <p class="navbar-mail" >
-           <%=  current_user.email %>
+           <%= link_to "#{current_user.name}", "profile"  %>
+           <%#=  current_user.name %>
          </p>
       </li>
       <li>
@@ -20,5 +21,6 @@
       </li>
     <% end %>
   </ul>
+
 
 </nav>
