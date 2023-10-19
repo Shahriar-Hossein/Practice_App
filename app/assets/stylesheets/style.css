@@ -1,5 +1,6 @@
 @import url("navbar.css");
 
+
 *{
     font-family: "Epilogue", sans-serif;
     font-size: 0.9rem;
@@ -13,10 +14,10 @@ li{
 }
 
 body {
-    background-image:linear-gradient(
+    /*background-image:linear-gradient(
             rgba(0, 0, 255, 0.5) 80%,rgba(0, 0, 255, 0.5) 0% );
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center;*/
     background-size: auto;
     height: 100%;
     background-color: white;
@@ -95,16 +96,16 @@ footer{
     right: 0;
     width: 100vw;
     padding-top: 5px;
-    background: blueviolet;
+    /*background: floralwhite;*/
     color: black;
     text-align: center;
 }
-.footer-content h3{
-    font-size: 2rem;
-    font-weight: 250;
-    text-transform: capitalize;
-    line-height: .5rem;
-}
+/*.footer-content h3{*/
+/*    font-size: 2rem;*/
+/*    font-weight: 250;*/
+/*    text-transform: capitalize;*/
+/*    line-height: .5rem;*/
+/*}*/
 /*
 .footer-content p{
     max-width: 200px;

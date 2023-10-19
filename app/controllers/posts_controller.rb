@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    # raise @post.inspect
     @post = Post.find(params[:id])
     @user = User.find(@post.user_id)
   end
