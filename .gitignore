@@ -29,6 +29,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+#ignore database is a must
+/config/database.yml
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+/.idea
