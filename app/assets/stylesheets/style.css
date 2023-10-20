@@ -1,6 +1,7 @@
 @import url("navbar.css");
 
 
+
 *{
     font-family: "Epilogue", sans-serif;
     font-size: 0.9rem;
@@ -76,7 +77,7 @@ a:visited {
 }
 .right-side-content{
 
-    background-image: url("background.jpeg");
+    /*background-image: url("background.jpeg");*/
     background-size: cover;
     background-repeat: no-repeat;
     width: 300px;

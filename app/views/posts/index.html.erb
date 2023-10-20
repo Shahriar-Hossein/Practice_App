@@ -1,23 +1,18 @@
-<h1>Posts </h1>
-
 <% if can? :create, Post %>
-  <div style="text-decoration:none">
-    <button type="button" ><%= link_to "New Post", new_post_path %> </button>
-  </div>
+<!--  <div style="text-decoration:none">-->
+<!--    <button type="button" ><%#= link_to "New Post", new_post_path %> </button>-->
+<!--  </div>-->
 <% end %>
-
 <ul>
   <% @posts.each do |p| %>
   <li>
-    <%= link_to p.title, p %>
+    <%= p.title%> <br/>
+    <%= p.body%><br/>
+    <%= link_to "read more ",post_path(p) %>
   </li>
   <% end %>
 </ul>
-<br />
-
-<h1 class="text-red-700 text-3xl font-bold underline">
-  hello
-</h1>
+<br/>
 
 
 

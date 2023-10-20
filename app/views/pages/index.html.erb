@@ -1,18 +1,13 @@
 <% if user_signed_in? %>
-  <h1>Welcome Home, <%= current_user.name %></h1>
-  <div align="left">
-    <%#= link_to " Edit Profile ", edit_user_registration_path  %>
-    <%#= link_to " Profile ", "user/profile"  %>
-    <!--
-      #
-      user_registration_path(current_user)
-      user_path(current_user)
-    -->
-    <% #link_to 'Sign out', destroy_user_session_path , data: { turbo_method: :delete }  %>
-
+  <h1 class="text-3xl">Welcome Home, <%= current_user.name %></h1>
+  <div class="mt-4">
+    <%= link_to "Profile", "user/profile", class: "text-blue-500 hover:underline mr-4" %>
+    <%= link_to 'Sign out', destroy_user_session_path, class: "text-red-500 hover:underline", data: { turbo_method: :delete } %>
   </div>
 <% else %>
-  <h1>Home</h1>
-  <% #link_to 'Sign in', new_user_session_path %>
+  <h1 class="text-3xl">Home</h1>
+  <%= link_to 'Sign in', new_user_session_path, class: "text-blue-500 hover:underline text-lg mt-4" %>
+  <br />
 <% end %>
-<% #link_to 'Posts', posts_path %>
+
+<%= link_to 'Create Post', new_post_path, class: "text-blue-500 hover:underline text-lg mt-4" %>
