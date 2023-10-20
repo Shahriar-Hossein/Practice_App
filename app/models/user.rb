@@ -41,4 +41,15 @@ class User < ApplicationRecord
 
   validates :image, attached: true
 
+  # validates :date_of_birth, attached: true
+  validate :minimum_7_years_old
+
+  def minimum_7_years_old
+    return if date_of_birth.blank?
+
+    if date_of_birth + 7.years > Date.today
+      errors.add(:date_of_birth, "ERROR. USER must be atleast 7 years old")
+    end
+  end
+
 end
