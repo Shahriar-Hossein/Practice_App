@@ -8,11 +8,9 @@
       user_registration_path(current_user)
       user_path(current_user)
     -->
-    <% #link_to 'Sign out', destroy_user_session_path , data: { turbo_method: :delete }  %>
-
   </div>
 <% else %>
   <h1>Home</h1>
-  <% #link_to 'Sign in', new_user_session_path %>
 <% end %>
-<% #link_to 'Posts', posts_path %>
+
+
