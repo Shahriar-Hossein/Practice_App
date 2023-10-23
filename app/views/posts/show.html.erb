@@ -25,12 +25,4 @@
 
 <h2>Comments</h2>
 <%#= raise @post.comments.inspect %>
-  <%= render @post.comments %>
-
-
-
-<% if can? :create, Comment %>
-  <h2>Add a comment:</h2>
-  <%= render 'comments/form' %>
-  <br><br>
-<% end %>
+  <%= render @post.comments.reverse %>
