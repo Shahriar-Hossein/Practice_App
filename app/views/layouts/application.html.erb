@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>PracticeApp</title>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'style.css' %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -15,7 +14,7 @@
   <body >
     <div class="page-container">
       <%= render "layouts/navbar" %>
-
+      <br>
       <div class="content-wrap">
         <div class="main-content">
           <p class="notice"><%= notice %></p>

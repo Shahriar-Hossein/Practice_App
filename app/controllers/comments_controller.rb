@@ -3,8 +3,6 @@ class CommentsController < ApplicationController
   load_and_authorize_resource param_method: :comment_params
 
   def create
-    #@comment = Comment.new(post_id: params[:post_id])
-    #@user = current_user
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params) do |c|
       c.user = current_user
@@ -16,14 +14,11 @@ class CommentsController < ApplicationController
   def edit
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
-    #@comment = Comment.find(params[:post_id, :id])
   end
 
   def update
-    #raise params.inspect
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
-    #@comment = Comment.find(params[:id])
     if @comment.update(comment_params)
       redirect_to post_path(@post)
     else
