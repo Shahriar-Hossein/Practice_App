@@ -1,34 +1,31 @@
 <!-- Navbar goes here -->
 <nav class="bg-white shadow-lg sticky top-0">
-  <div class="max-w-screen-lg mx-auto px-1">
+  <div class="">
     <div class="flex justify-between items-center">
-      <div class="flex space-x-20 float-left">
-        <div class="flex items-center py-4 px-20 mr-5 ">
+      <div class="flex space-x-10">
+        <div class="flex items-center py-4 float-left px-4 ">
             <%= link_to image_tag("fb_logo.png", alt:"Logo", class: "h-8 w-8 mr-2"), root_path %>
             <%= link_to "Social App",root_path, class:"font-semibold text-gray-500 text-lg"%>
         </div>
       </div>
 
-      <div class="flex space-x-20 float-left">
-
-        <div class=" flex items-center space-x-1 ml-5 px-1">
+      <div class="flex  ">
+        <div class=" flex items-center space-x-1 ">
           <!--        buttons of the navbar-->
-          <%= link_to "Posts", posts_path, class:"py-4 px-5 text-slate-600  font-semibold "%>
-          <a href="" class="py-4 px-5 text-slate-600 font-semibold  transition duration-300">Services</a>
-          <a href="" class="py-4 px-5 text-slate-600 font-semibold  transition duration-300">About</a>
-          <a href="" class="py-4 px-5 text-slate-600 font-semibold  transition duration-300">Contact Us</a>
+          <%= link_to "Posts", posts_path, class:"py-4 px-4 text-slate-600  font-semibold "%>
+          <a href="" class="py-4 px-4 text-slate-600 font-semibold  transition duration-300">Services</a>
+          <a href="" class="py-4 px-4 text-slate-600 font-semibold  transition duration-300">About</a>
+          <a href="" class="py-4 px-4 text-slate-600 font-semibold  transition duration-300">Contact Us</a>
         </div>
         <!--      Drop Down menu    -->
-        <div class="dropdown inline-block relative space-x-1">
-          <button class="bg-gray-300 text-gray-700 font-semibold py-4 px-4 rounded inline-flex items-center">
+        <div  class="dropdown inline-block relative space-x-1 ">
+          <button onclick ="toggleMenu()" class="bg-gray-300 text-gray-700 font-semibold py-4 px-1 rounded inline-flex items-center">
             <% if user_signed_in? %>
-              <%= image_tag current_user.image, class: "h-8 w-8 mr-1"  %>
-            <% else %>
-              <span class="mr-1">Dropdown</span>
+              <%= image_tag current_user.image, class: "h-8 w-8 mr-1 rounded-full"  %>
             <% end %>
             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
           </button>
-          <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+          <ul id="menu" class="absolute hidden text-gray-700 pt-1 right-0">
             <% if user_signed_in? %>
               <li class="">
                 <%= link_to "#{current_user.name}"+"\n#{current_user.email}", "profile", class: "rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"  %>
@@ -47,7 +44,27 @@
   </div>
 </nav>
 
+<!-- Javascript code -->
+<script>
+    var menu = document.getElementById("menu");
 
+    // open/close the menu when the user clicks on the button
+    function toggleMenu() {
+        if (menu.classList.contains('hidden')) {
+            menu.classList.remove('hidden');
+        } else {
+            menu.classList.add('hidden');
+        }
+    }
+
+    // close the menu when the user clicks outside of it
+    window.onclick = function (event) {
+        var dropdownWrapper = document.getElementById('dropdown-wrapper');
+        if (!dropdownWrapper.contains(event.target) && !menu.classList.contains('hidden')) {
+            menu.classList.add('hidden');
+        }
+    }
+</script>
 
 
 
