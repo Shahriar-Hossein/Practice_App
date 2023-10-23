@@ -4,24 +4,18 @@ class PostsController < ApplicationController
   #before_action :post_params, :create, :update
   load_and_authorize_resource param_method: :post_params
 
-  def index
-    @posts = Post.all
-  end
+  def index ; end
 
   def show
     # raise @post.inspect
-    @post = Post.find(params[:id])
     @user = User.find(@post.user_id)
   end
 
   def new
-    @post = Post.new
     @current_user = current_user
   end
 
   def create
-    #temp
-    @post = current_user.posts.new(post_params)
     if @post.save
       redirect_to @post
     else
@@ -29,16 +23,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def temp
-    #raise 'hi'
-  end
-
-  def edit
-    @post = Post.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to @post
     else
@@ -47,17 +34,14 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
-
     redirect_to posts_path, status: :see_other
   end
 
   private
 
   def post_params
-    #raise @post.inspect
-    params.require(:post).permit(:user_id, :title, :body,:picture)
+    params.require(:post).permit(:user_id, :title, :body, :picture)
   end
 
 end
