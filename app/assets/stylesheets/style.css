@@ -1,6 +1,7 @@
 @import url("navbar.css");
 
 
+
 *{
     font-family: "Epilogue", sans-serif;
     font-size: 0.9rem;
@@ -52,7 +53,9 @@ h1{
     min-width: 70%;
 }
 .right-side-content{
-    background-image: url("background.jpeg");
+
+    /*background-image: url("background.jpeg");*/
+
     background-size: cover;
     background-repeat: no-repeat;
     width: 300px;
