@@ -15,18 +15,11 @@
   <body >
     <div class="page-container">
       <%= render "layouts/navbar" %>
-
-      <div>
-
-        <div class="main-content">
+      <div class="flex items-center px-4 ">
+        <div class="flex-column items-center">
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
-          <p>
-          <%= yield %>
-          </p>
-        </div>
-        <div class="right-side-content">
-
+            <%= yield %>
         </div>
       </div>
       <%= render "layouts/footer" %>
