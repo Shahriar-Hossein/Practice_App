@@ -1,7 +1,7 @@
 # app/config/routes.rb
 Rails.application.routes.draw do
 
-  root 'pages#index'
+  root 'posts#index'
   # get 'pages/index'
 
   devise_for  :users,
