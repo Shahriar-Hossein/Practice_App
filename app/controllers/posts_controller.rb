@@ -4,10 +4,11 @@ class PostsController < ApplicationController
   #before_action :post_params, :create, :update
   load_and_authorize_resource param_method: :post_params
 
-  def index ; end
+  def index
+    @posts = Post.all
+  end
 
   def show
-    # raise @post.inspect
     @user = User.find(@post.user_id)
   end
 
@@ -41,7 +42,8 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:user_id, :title, :body, :picture)
+    #raise @post.inspect
+    params.require(:post).permit(:user_id, :title, :body,:picture)
   end
 
 end
