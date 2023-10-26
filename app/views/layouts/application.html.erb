@@ -12,11 +12,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body >
-    <div class="page-container">
+  <body class="bg-white min-h-screen min-w-fit relative ">
+    <div class="min-h-screen min-w-fit">
       <%= render "layouts/navbar" %>
-      <div class="flex items-center px-4 ">
-        <div class="flex-column items-center">
+      <div class="flex-column items-center px-4 min-h-80 mx-20">
+        <div class="flex-column items-center my-4 py-4 mx-4 px-4">
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
             <%= yield %>

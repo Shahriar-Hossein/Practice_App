@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @current_user = current_user
+    @user = current_user
   end
 
   def create

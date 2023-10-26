@@ -1,41 +1,8 @@
-@import url("navbar.css");
+@import url("navbar.css") ;
 
 *{
     font-family: "Epilogue", sans-serif;
     font-size: 1rem;
-}
-
-body {
-    background-size: auto;
-    height: 100%;
-    background-color: white;
-    color: #2E2F30;
-    text-align: left;
-    width: 100%;
-    display: table-cell;
-    min-height: 100vh;
-}
-
-html, body {
-    margin: 1px;
-    padding: 1px;
-}
-
-.page-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    min-height: 100vh;
-}
-
-.content-wrap {
-    display: flex;
-    width: 80%;
-    margin: auto;
-    padding-bottom: 1.5rem;    /* Footer height */
-    justify-content: space-between;
-    align-items: flex-start;
-
 }
 
 footer{
@@ -47,8 +14,12 @@ footer{
     padding-top: 5px;
     color: black;
     text-align: center;
+    min-height: 10vh;
 }
 
+.min-h-80{
+    min-height: 80vh;
+}
 
 
 

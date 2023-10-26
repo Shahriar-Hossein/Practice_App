@@ -1,7 +1,7 @@
 
-<ul>
+<ul class="divide-current divide-y mb-4 mt-4">
   <% @posts.each do |p| %>
-    <li class="mx-auto w-3/4 text-center mb-8">
+    <li class="mx-auto w-3/4 text-center items-center mb-4 mt-4 py-1">
       <% if p.picture.attached? %>
         <%= image_tag p.picture, class: "post-image mx-auto rounded-lg", style: "width: 200px; height: 150px;" %><br/>
       <% end %>
