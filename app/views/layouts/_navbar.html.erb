@@ -38,7 +38,6 @@
           <ul id="menu" class="rounded-lg px-10 py-10 absolute hidden shadow-lg  bg-gray-100 text-gray-700 pt-1 right-0 min-w-max ">
             <li class="flex bg-gray-200 items-center mt-8 rounded-lg">
                 <%= link_to image_tag(current_user.image, class: "h-14 w-14 rounded-full center"), "profile", class: "px-4 py-2"  %>
-                <%#= link_to "#{current_user.name}"+"\n"+ "#{current_user.email}", "profile", class: "rounded-t  py-2 px-4 block whitespace-no-wrap"  %>
                 <div class="flex-column">
                     <%= link_to "#{current_user.name}", "profile", class: "rounded-t  pt-4 pr-10 block whitespace-no-wrap"  %>
                     <%= link_to "#{current_user.email}", "profile", class: "rounded-t pb-4 pr-10 block whitespace-no-wrap"  %>
@@ -78,16 +77,11 @@
         } else {
             menu.classList.add('hidden');
         }
-        // console.log(event);
         event.stopPropagation();
     }
 
     // close the menu when the user clicks outside of it
     window.onclick = function (event) {
-        // var dropdownWrapper = document.getElementById('dropdown-wrapper');
-        // if (!dropdownWrapper.contains(event.target) || !menu.classList.contains('hidden')) {
-        //     menu.classList.add('hidden');
-        // }
         menu.classList.add('hidden');
     }
 </script>
