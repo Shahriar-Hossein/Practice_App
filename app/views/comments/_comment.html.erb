@@ -1,27 +1,21 @@
-<table >
-  <!--<strong>Comment:</strong> -->
-  <tr>
-    <td style="background-color: lightgrey" width="400px" colspan="2">
+
+<div class=" flex mx-5 px-4 ml-2">
+  <div class="mx-1 my-1 px-2">
     <strong><%= comment.commenter %> </strong>
     <br>
     <%= comment.body %>
-    </td>
-  </tr>
-  <tr >
-    <td align="center" >
+  </div>
+    <ul class="flex  ">
       <% if can? :update, comment %>
-        <%= link_to 'Edit', edit_post_comment_path(comment.post,comment) %>
-      <% end %>
-    </td>
-    <td >
-      <% if can? :destroy, comment %>
-        <%= link_to 'Delete',
+        <li class="mx-5"><%= link_to 'Edit', edit_post_comment_path(comment.post,comment) %></li>
+        <li><%= link_to 'Delete',
                     [comment.post, comment], data: {
             turbo_method: :delete,
             turbo_confirm: "Are you sure?"
           }
         %>
+        </li>
       <% end  %>
-    </td>
-  </tr>
-</table>
+    </ul>
+
+</div>
