@@ -1,26 +1,44 @@
+<div class="w-full flex">
+  <!-- Left Side (25%) -->
+  <div class="w-1/5 flex justify-center items-center">
+    <!-- This div will be 25% of the available width and blank -->
+  </div>
 
-<h1><%= @post.title %></h1>
-<h3>Written by <%= @user.email %> </h3>
+  <!-- Center Content (50%) -->
+  <div class="w-3/5">
+    <div class="text-center">
+      <% if @post.picture.attached? %>
+        <%= image_tag @post.picture, class: "post-image mx-auto rounded-lg", width: "500", height: "auto", style: "max-width: 100%;" %><br/>
+      <% end %>
+      <h1 class="text-3xl font-bold"><%= @post.title %></h1>
+      <h3>Written by <%= @user.email %></h3>
 
-<p><%= @post.body %></p>
+      <p><%= @post.body %></p>
 
-<% #if current_user == @post.user_id %>
-<% if can? :update, @post %>
-  <ul>
-    <li><%= link_to "Edit", edit_post_path(@post) %></li>
-    <li><%= link_to "Delete", post_path(@post), data: {
-      turbo_method: :delete,
-      turbo_confirm: "Are you sure?"
-    } %></li>
-  </ul>
-<% end %>
-<br>
+      <% if can? :update, @post %>
+        <ul class="mt-4">
+          <%= link_to "Edit", edit_post_path(@post), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+          <%= link_to "Delete", post_path(@post), class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded", data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+          } %>
+        </ul>
+      <% end %>
+      <% if can? :create, Comment %>
+        <h2 class="text-xl font-semibold mt-4">Add a comment:</h2>
+        <%= render 'comments/form' %>
+      <% end %>
+    </div>
+  </div>
 
-<% if can? :create, Comment %>
-  <h2>Add a comment:</h2>
-  <%= render 'comments/form' %>
-<% end %>
+  <!-- Right Side (25% blank) -->
+  <div class="w-1/5">
+    <!-- This div will be 25% of the available width and blank -->
+  </div>
+</div>
 
-<h2>Comments</h2>
-<%#= raise @post.comments.inspect %>
+<!-- Center Comments (100%) -->
+<div class="w-full text-center">
+  <h2 class="mx-auto w-3/4 text-center mb-8">Comments</h2>
   <%= render @post.comments.reverse %>
+</div>
