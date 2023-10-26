@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>PracticeApp</title>
+
     <%= stylesheet_link_tag 'style.css' %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -11,20 +12,14 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body >
-    <div class="page-container">
+  <body class="bg-white min-h-screen min-w-fit relative ">
+    <div class="min-h-screen min-w-fit">
       <%= render "layouts/navbar" %>
-      <br>
-      <div class="content-wrap">
-        <div class="main-content">
+      <div class="flex-column items-center px-4 min-h-80 mx-20">
+        <div class="flex-column items-center my-4 py-4 mx-4 px-4">
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
-          <p>
-          <%= yield %>
-          </p>
-        </div>
-        <div class="right-side-content">
-
+            <%= yield %>
         </div>
       </div>
       <%= render "layouts/footer" %>
