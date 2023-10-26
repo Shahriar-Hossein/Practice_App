@@ -32,9 +32,9 @@
       <% else %>
       <!--      Drop Down menu    -->
         <div  class="dropdown inline-block  relative space-x-1">
-          <button onclick ="toggleMenu(event)" class=" font-semibold py-3 px-1 rounded inline-flex items-center">
+          <div onclick ="toggleMenu(event)" class=" font-semibold py-3 px-1 rounded inline-flex items-center">
               <%= image_tag current_user.image, class: "h-12 w-12 rounded-full"  %>
-          </button>
+          </div>
           <ul id="menu" class="rounded-lg px-10 py-10 absolute hidden shadow-lg  bg-gray-100 text-gray-700 pt-1 right-0 min-w-max ">
             <li class="flex bg-gray-200 items-center mt-8 rounded-lg">
                 <%= link_to image_tag(current_user.image, class: "h-14 w-14 rounded-full center"), "profile", class: "px-4 py-2"  %>
