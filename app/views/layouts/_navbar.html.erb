@@ -1,6 +1,6 @@
 
 <!-- Navbar goes here -->
-<nav class="bg-green-50 shadow-lg sticky top-0 right-0 left-0 py-4  ">
+<nav class="bg-green-100 shadow-lg sticky top-0 right-0 left-0 py-4  ">
   <div class="flex justify-between items-center mx-20">
     <div class="flex space-x-10">
       <div class="flex items-center py-4 float-left px-4 ">
@@ -35,7 +35,7 @@
           <div onclick ="toggleMenu(event)" class=" font-semibold py-3 px-1 rounded inline-flex items-center cursor-pointer">
               <%= image_tag current_user.image, class: "h-12 w-12 rounded-full"  %>
           </div>
-          <ul id="menu" class="rounded-lg px-10 py-10 absolute hidden shadow-lg  bg-gray-100 text-gray-700 pt-1 -right-20 min-w-max ">
+          <ul id="menu" class="rounded-lg px-6 py-10 absolute hidden drop-shadow-[0_0px_10px_rgba(0,0,0,0.25)]  bg-green-50 text-gray-700 pt-1 -right-20 min-w-max ">
             <li class="flex bg-gray-200 items-center mt-8 rounded-lg">
                 <%= link_to image_tag(current_user.image, class: "h-14 w-14 rounded-full center"), users_path, class: "px-4 py-2"  %>
                 <div class="flex-column">
@@ -43,7 +43,7 @@
                     <%= link_to "#{current_user.email}", users_path, class: "rounded-t pb-4 pr-10 block whitespace-no-wrap"  %>
                 </div>
               <%= link_to edit_user_registration_path, class:"py-7 px-5 rounded-t block" do  %>
-                <svg class="w-7 h-7 text-gray-600 dark:text-white"
+                <svg class="w-7 h-7 text-green-800 dark:text-white"
                      aria-hidden="true"
                      xmlns="http://www.w3.org/2000/svg"
                      fill="currentColor"
@@ -55,7 +55,7 @@
                 <% end %>
             </li>
             <li class="mt-10" align="center">
-              <%= link_to 'Logout', destroy_user_session_path , data: { turbo_method: :delete }, class:"text-xl hover:border-transparent border rounded-lg border-solid border-red-500 hover:text-white text-red-500 font-semibold  hover:bg-red-500 mt-2 py-2 px-4 whitespace-no-wrap" %>
+              <%= link_to 'SIGN OUT', destroy_user_session_path , data: { turbo_method: :delete }, class:"text-xl tracking-wider rounded-3xl border-solid  text-white font-semibold  bg-red-500 mt-2 py-3 px-8 whitespace-no-wrap" %>
             </li>
           </ul>
         </div>
