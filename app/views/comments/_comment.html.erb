@@ -1,21 +1,32 @@
-
-<div class=" flex mx-5 px-4 ml-2">
-  <div class="mx-1 my-1 px-2">
-    <strong><%= comment.commenter %> </strong>
-    <br>
-    <%= comment.body %>
-  </div>
-    <ul class="flex  ">
+<% unless comment.id == nil %>
+<div class="bg-gray-200 shadow-xl rounded-lg p-7 pb-11 my-5">
+  <div class="flex justify-between mx-1 my-1 px-2 items-right">
+    <p class="my-1 mr-20 "><%= comment.commenter %> </p>
+    <div  class="">
       <% if can? :update, comment %>
-        <li class="mx-5"><%= link_to 'Edit', edit_post_comment_path(comment.post,comment) %></li>
-        <li><%= link_to 'Delete',
-                    [comment.post, comment], data: {
-            turbo_method: :delete,
-            turbo_confirm: "Are you sure?"
-          }
-        %>
-        </li>
+
+        <ul class="flex ml-20  bg-gray-100 shadow-lg rounded-lg min-w-max ">
+          <li>
+            <%= link_to 'Edit', edit_post_comment_path(comment.post,comment),
+                        class: "rounded-t px-4  hover:bg-gray-200 whitespace-nowrap" %>
+          </li>
+          <li><%= link_to 'Delete',
+                          [comment.post, comment], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                }, class: "rounded-t  px-4 hover:bg-gray-200 whitespace-nowrap"
+              %>
+          </li>
+        </ul>
       <% end  %>
-    </ul>
+    </div>
+  </div>
+    <div class="text-left mx-4">
+      <%= comment.body %>
+    </div>
+
 
 </div>
+
+<% end %>
+
