@@ -72,9 +72,10 @@
   <h2 style="text-align: center;color: blue"> LOGIN </h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+    <div class="mb-6">
+      <%= f.label :Username_or_Email, class:"label" %><br/>
+      <%= f.text_field :login, autofocus: true, class: "input" %>
     </div>
 
     <div class="field">
