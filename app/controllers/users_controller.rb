@@ -10,8 +10,9 @@
    def show
      # raise params.inspect
      # raise current_user.inspect
-     @user = User.find(params[:id])
-     authorize! :read, @user.id
+     @user = current_user
+     render 'users/registrations/show'
+
       # raise @user.inspect
      # authorize! :read, @user
      # unless current_user.id == @user.id
