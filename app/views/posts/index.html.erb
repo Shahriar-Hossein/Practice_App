@@ -1,15 +1,15 @@
-<div>
-  <ul class="mx-auto text-center space-y-10">
+<div class="bg-green-50 shadow-xl rounded-lg p-5 my-4">
+  <ul class="mx-auto text-center ">
     <% @posts.reverse_each do |p| %>
-      <li class="mb-8">
+      <li class="">
         <div class="text-left">
-          <div class="mb-8">
+          <div class="">
             <% if p.picture.attached? %>
-              <%= image_tag p.picture, class: "w-fit h-96 rounded-3xl" %>
+              <%= image_tag p.picture, class: "w-fit h-96 rounded-3xl mb-6" %>
             <% end %>
           </div>
 
-          <div class="flex items-center">
+          <div class="flex ">
             <div>
               <%= image_tag p.user.image, class: "w-16 h-16 rounded-full mr-6" %>
             </div>
