@@ -1,7 +1,7 @@
 <%= form_with model: [ @post, @post.comments.build ] do |form| %>
 
 
-    <%= hidden_field :commenter, value: current_user.email %>
+    <%= hidden_field :commenter, value: current_user.name + " " + current_user.lastName %>
 
   <p>
     <%# form.label :body %>
