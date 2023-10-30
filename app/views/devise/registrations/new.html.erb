@@ -1,58 +1,81 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    .input-icon {
+        margin-right: 10px; /* Adjust the space between the icon and the input field */
+        color: #777; /* Change the icon color as needed */
+        font-size: 18px; /* Adjust the icon size */
+    }
+</style>
 <div class="bg-green-50 p-8 shadow-md text-center rounded-3xl">
   <h2 class="text-2xl font-bold mb-4 mr-14">Sign up</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="text-left inline-block">
-    <div class="mb-4">
-      <%= f.text_field :username, class: "input rounded-3xl", autofocus: true, placeholder: "Username" %>
-    </div>
+      <div class="mb-4">
+        <i class="fas fa-user input-icon"></i>
+        <%= f.text_field :username, class: "input rounded-3xl", autofocus: true, placeholder: "Username" %>
+      </div>
 
-    <div class="mb-4">
-      <%= f.text_field :name, class: "input rounded-3xl", autofocus: true, placeholder: "Name" %>
-    </div>
+      <div class="mb-4">
+        <i class="fas fa-user input-icon"></i>
+        <%= f.text_field :name, class: "input rounded-3xl", autofocus: true, placeholder: "Name" %>
+      </div>
 
-    <div class="mb-4">
-      <%= f.text_field :lastName, class: "input rounded-3xl", autofocus: true, placeholder: "Last Name" %>
-    </div>
+      <!-- Last Name Field with an Icon -->
+      <div class="mb-4">
+        <i class="fas fa-user input-icon"></i>
+        <%= f.text_field :lastName, class: "input rounded-3xl", autofocus: true, placeholder: "Last Name" %>
+      </div>
 
-    <div class="mb-4">
-<!--      <label for="contact_number" class="label">Contact Number</label><br />-->
-      <%= f.text_field :contact_number, class: "input rounded-3xl", autofocus: true, placeholder: "contact number" %>
-    </div>
+      <!-- Contact Number Field with an Icon -->
+      <div class="mb-4">
+        <i class="fas fa-phone input-icon"></i>
+        <%= f.text_field :contact_number, class: "input rounded-3xl", autofocus: true, placeholder: "Contact Number" %>
+      </div>
 
-    <div >
+      <!-- Gender Radio Buttons with Icons -->
       <div class="radio-buttons mb-4">
-        <%= f.radio_button :gender, 'Male', class: "input rounded-3xl", autofocus: true %>
+        <i class="fas fa-male input-icon"></i>
+        <%= f.radio_button :gender, 'Male', class: "input rounded-3xl ml-2", autofocus: true %>
         <%= label :gender_male, 'Male', class: "label" %>
+        <i class="fas fa-female input-icon ml-2"></i>
         <%= f.radio_button :gender, 'Female', class: "input rounded-3xl", autofocus: true %>
         <%= label :gender_female, 'Female', class: "label" %>
       </div>
-    </div>
 
-    <div class="mb-4">
-      <%= f.date_field :date_of_birth, class: "input rounded-3xl", autofocus: true, placeholder: "Date of Birth" %>
-    </div>
+      <!-- Date of Birth Field with an Icon -->
+      <div class="mb-4">
+        <i class="fas fa-calendar-alt input-icon"></i>
+        <%= f.date_field :date_of_birth, class: "input rounded-3xl", autofocus: true, placeholder: "Date of Birth" %>
+      </div>
 
-    <div class="mb-4">
-    <%= f.file_field :image, class: "input rounded-3xl", accept: 'image/png, image/jpeg, image/jpg', autofocus: true %>
-    </div>
+      <!-- Image Upload Field with an Icon -->
+      <div class="mb-4">
+        <i class="fas fa-image input-icon"></i>
+        <%= f.file_field :image, class: "input rounded-3xl", accept: 'image/png, image/jpeg, image/jpg', autofocus: true %>
+      </div>
 
-    <div class="mb-4">
-      <%= f.email_field :email, class: "input rounded-3xl", autofocus: true, placeholder: "Email" %>
-    </div>
+      <!-- Email Field with an Icon -->
+      <div class="mb-4">
+        <i class="fas fa-envelope input-icon"></i>
+        <%= f.email_field :email, class: "input rounded-3xl", autofocus: true, placeholder: "Email" %>
+      </div>
 
-    <div class="mb-4">
-      <% if @minimum_password_length %>
-        <em>Passwors <%= @minimum_password_length %> characters minimum</em>
-      <% end %><br />
-      <%= f.password_field :password, class: "input rounded-3xl", placeholder: "new-password" %>
-    </div>
+      <!-- Password Field with an Icon -->
+      <div class="mb-4">
+        <% if @minimum_password_length %>
+          <em>Password <%= @minimum_password_length %> characters minimum</em>
+        <% end %><br />
+        <i class="fas fa-lock input-icon"></i>
+        <%= f.password_field :password, class: "input rounded-3xl", placeholder: "New Password" %>
+      </div>
 
-    <div class="mb-4">
-      <%= f.password_field :password_confirmation, class: "input rounded-3xl", placeholder: "Confirm-password" %>
-    </div>
-    </div>
+      <!-- Password Confirmation Field with an Icon -->
+      <div class="mb-4">
+        <i class="fas fa-lock input-icon"></i>
+        <%= f.password_field :password_confirmation, class: "input rounded-3xl", placeholder: "Confirm Password" %>
+      </div>
     <div class="actions mb-4">
       <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded cursor-pointer mr-14">Sign up</button>
     </div>
