@@ -1,17 +1,16 @@
 <div class="bg-green-50 shadow-xl rounded-lg p-5 my-4">
-  <ul class="mx-auto text-center ">
+  <ul class="mx-auto text-center divide-y-2 ">
     <% @posts.reverse_each do |p| %>
-      <li class="">
+      <li class="py-4">
         <div class="text-left">
           <div class="">
             <% if p.picture.attached? %>
-              <%= image_tag p.picture, class: "w-fit h-96 rounded-3xl mb-6" %>
+              <%= image_tag p.picture, class: "w-fit h-96 rounded-3xl mb-6 grow" %>
             <% end %>
           </div>
-
           <div class="flex ">
-            <div>
-              <%= image_tag p.user.image, class: "w-16 h-16 rounded-full mr-6" %>
+            <div class="">
+              <%= image_tag p.user.image, class: "w-16 h-16 rounded-full mr-6 " %>
             </div>
             <div class="flex-column">
               <div class="font-bold text-2xl">
@@ -22,8 +21,6 @@
               </div>
             </div>
           </div>
-
-
           <div>
             <!-- Set max words per line for the title -->
             <h2 class="text-4xl font-bold text-black mb-3 mt-8 break-word"><%= p.title %></h2>
@@ -32,7 +29,7 @@
           </div>
 
         </div>
-        <div class="border-b-2 border-gray-400 p-4"></div><br/>
+<!--        <div class="border-b-2 border-gray-400 p-4"></div><br/>-->
       </li>
     <% end %>
   </ul>

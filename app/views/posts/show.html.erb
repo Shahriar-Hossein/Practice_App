@@ -1,20 +1,16 @@
-<div class="text-left">
-  <div class="bg-green-50 shadow-xl rounded-lg p-5 my-4">
+<div class="text-left my-4">
+  <div class="bg-green-50 shadow-xl rounded-lg p-5 my-4 py-9">
     <% if @post.picture.attached? %>
-        <%= image_tag @post.picture, class: "w-fit h-96 rounded-3xl"%><br/>
-      <% end %>
+      <%= image_tag @post.picture, class: "w-fit h-96 rounded-3xl"%><br/>
+    <% end %>
     <div class="flex justify-between  ">
       <div class="flex">
-        <div>
           <%= image_tag @post.user.image, class: "w-16 h-16 rounded-full mr-6" %>
-        </div>
         <div class="flex-column items-left left-0">
           <div class="font-bold text-2xl">
             <%= "#{@post.user.name}  #{@post.user.lastName}"%>
           </div>
-          <div>
             <%= time_ago_in_words(@post.created_at) %> ago
-          </div>
         </div>
       </div>
       <div  class="dropdown   relative space-x-1">
@@ -22,9 +18,8 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16"> <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/> </svg>
         </div>
         <% if can? :update, @post %>
-          <ul id="postButton" class="mt-4 hidden absolute shadow-lg right-0 bg-green-50 px-2 py-2 top-5">
+          <ul id="postButton" class="mt-4 hidden absolute shadow rounded-lg right-0 bg-gray-200 px-2 py-2 top-5">
             <li>
-            <%#= link_to "Edit", , class: "block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg" %>
               <%= link_to edit_post_path(@post), class:" rounded-t bg-gray-100 my-2" do  %>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" id="Edit" class="w-6 h-7 "><path d="M6 34.5V42h7.5l22.13-22.13-7.5-7.5L6 34.5zm35.41-20.41c.78-.78.78-2.05 0-2.83l-4.67-4.67c-.78-.78-2.05-.78-2.83 0l-3.66 3.66 7.5 7.5 3.66-3.66z" fill="#34a853" class="color000000 svgShape"></path><path fill="none" d="M0 0h48v48H0z"></path></svg>
               <% end %>
@@ -42,22 +37,20 @@
           </ul>
         <% end %>
       </div>
-  </div>
+    </div>
     <h1 class="text-4xl font-bold text-black mb-3 mt-8 break-word"><%= @post.title %></h1>
     <p class="text-base text-black line-clamp-2"><%= @post.body %></p>
-
   </div>
-
   <div class="bg-green-50 shadow-xl rounded-lg p-5 my-5">
-  <% if can? :create, Comment %>
-      <h2 class="text-xl font-semibold mt-4">Add a comment:</h2>
-      <%= render 'comments/form' %>
-  <% end %>
-  <div class="w-full m-1 divide-y">
-    <h2 class="m-9">All Comments</h2>
-    <%= render @post.comments.reverse  %>
+    <% if can? :create, Comment %>
+        <h2 class="text-xl font-semibold mt-4">Add a comment:</h2>
+        <%= render 'comments/form' %>
+    <% end %>
+    <div class="w-full m-1 divide-y-2">
+      <h2 class="m-9">All Comments</h2>
+      <%= render @post.comments.reverse  %>
+    </div>
   </div>
-</div>
 </div>
 
 
@@ -81,5 +74,6 @@
     // close the menu when the user clicks outside of it
     window.onclick = function (event) {
         postButton.classList.add('hidden');
+        menu.classList.add('hidden');
     }
 </script>
