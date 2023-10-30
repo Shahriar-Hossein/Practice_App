@@ -1,6 +1,6 @@
 <% unless comment.id == nil %>
   <div class="flex  rounded-lg p-4 m-4 ">
-    <div class="w-15 ">
+    <div class="w-12 mt-1 ">
       <% if comment.user.image.attached? %>
         <%=image_tag comment.user.image, class:"w-10 h-10 mr-5 rounded-full "%>
       <% end %>
@@ -8,7 +8,7 @@
     <div class=" grow">
       <div class="flex justify-between mx-1 my-1 px-2 ">
         <div class="">
-          <p class="my-1 "><%= comment.user.name + " " + comment.user.lastName %> </p>
+          <p class=" font-semibold text-xl"><%= comment.user.name + " " + comment.user.lastName %> </p>
         </div>
         <div  class="">
           <% if can? :update, comment %>
