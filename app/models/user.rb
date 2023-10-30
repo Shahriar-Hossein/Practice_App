@@ -1,8 +1,24 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # Use the 'attr_accessor' macro only if you need a virtual attribute, but in this case, it's not required.
+  # attr_accessor :login
+
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, authentication_keys: [:login]
+
+  # Define the 'login' method to return the appropriate value for authentication.
+  def login
+    @login || username || email
+  end
+
+  # Use the 'find_for_database_authentication' method to customize how users are authenticated.
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    login = conditions.delete(:login)
+
+    where(conditions)
+      .where("lower(username) = :value OR lower(email) = :value", value: login.strip.downcase)
+      .first
+  end
 
   # association with other classes
   has_many :posts, dependent: :destroy
