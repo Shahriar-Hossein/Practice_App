@@ -1,10 +1,10 @@
 
 <!-- Navbar goes here -->
-<nav class="bg-white shadow-lg sticky top-0 right-0 left-0 py-4  ">
+<nav class="bg-green-100 shadow-lg sticky top-0 right-0 left-0 py-2  z-50">
   <div class="flex justify-between items-center mx-20">
     <div class="flex space-x-10">
       <div class="flex items-center py-4 float-left px-4 ">
-          <%= link_to image_tag("pageLogo.png", alt:"Logo", class: "h-12 w-12 mr-2 rounded-full"), root_path %>
+          <%= link_to image_tag("pageLogo.png", alt:"Logo", class: "h-7 w-7 mr-2 rounded-full"), root_path %>
           <%= link_to "Social App",root_path, class:"font-semibold text-gray-500 text-xl"%>
       </div>
     </div>
@@ -32,21 +32,30 @@
       <% else %>
       <!--      Drop Down menu    -->
         <div  class="dropdown inline-block  relative space-x-1">
-          <button onclick ="toggleMenu()" class=" font-semibold py-3 px-1 rounded inline-flex items-center">
+          <div onclick ="toggleMenu(event)" class=" font-semibold py-3 px-1 rounded inline-flex items-center cursor-pointer">
               <%= image_tag current_user.image, class: "h-12 w-12 rounded-full"  %>
-          </button>
-          <ul id="menu" class="rounded-lg px-10 py-10 absolute hidden shadow-lg  bg-gray-100 text-gray-700 pt-1 right-0 min-w-max ">
+          </div>
+          <ul id="menu" class="rounded-lg px-6 py-10 absolute hidden drop-shadow-[0_0px_10px_rgba(0,0,0,0.25)]  bg-green-50 text-gray-700 pt-1 -right-20 min-w-max ">
             <li class="flex bg-gray-200 items-center mt-8 rounded-lg">
-                <%= link_to image_tag(current_user.image, class: "h-14 w-14 rounded-full center"), "profile", class: "px-4 py-2"  %>
-                <%#= link_to "#{current_user.name}"+"\n"+ "#{current_user.email}", "profile", class: "rounded-t  py-2 px-4 block whitespace-no-wrap"  %>
-                <div class="flex-column ">
-                    <%= link_to "#{current_user.name}", "profile", class: "rounded-t  pt-4 block whitespace-no-wrap"  %>
-                    <%= link_to "#{current_user.email}", "profile", class: "rounded-t pb-4 block whitespace-no-wrap"  %>
+                <%= link_to image_tag(current_user.image, class: "h-14 w-14 rounded-full center"), users_path, class: "px-4 py-2"  %>
+                <div class="flex-column">
+                    <%= link_to "#{current_user.name}", users_path, class: "rounded-t  pt-4 pr-10 block whitespace-no-wrap"  %>
+                    <%= link_to "#{current_user.email}", users_path, class: "rounded-t pb-4 pr-10 block whitespace-no-wrap"  %>
                 </div>
-                <%= link_to "&#8827;".html_safe, edit_user_registration_path, class: " text-1xl font-semibold py-7 px-5 pl-20 rounded-t block whitespace-no-wrap items-center"  %>
+              <%= link_to edit_user_registration_path, class:"py-7 px-5 rounded-t block" do  %>
+                <svg class="w-7 h-7 text-green-800 dark:text-white"
+                     aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg"
+                     fill="currentColor"
+                     viewBox="0 0 20 18"
+                >
+                  <path d="M12.687 14.408a3.01 3.01 0 0 1-1.533.821l-3.566.713a3 3 0 0 1-3.53-3.53l.713-3.566a3.01 3.01 0 0 1 .821-1.533L10.905 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V11.1l-3.313 3.308Zm5.53-9.065.546-.546a2.518 2.518 0 0 0 0-3.56 2.576 2.576 0 0 0-3.559 0l-.547.547 3.56 3.56Z"/>
+                  <path d="M13.243 3.2 7.359 9.081a.5.5 0 0 0-.136.256L6.51 12.9a.5.5 0 0 0 .59.59l3.566-.713a.5.5 0 0 0 .255-.136L16.8 6.757 13.243 3.2Z"/>
+                </svg>
+                <% end %>
             </li>
             <li class="mt-10" align="center">
-              <%= link_to 'Logout', destroy_user_session_path , data: { turbo_method: :delete }, class:"text-xl hover:border-transparent border rounded-lg border-solid border-red-500 hover:text-white text-red-500 font-semibold  hover:bg-red-500 mt-2 py-2 px-4 whitespace-no-wrap" %>
+              <%= link_to 'SIGN OUT', destroy_user_session_path , data: { turbo_method: :delete }, class:"text-xl tracking-wider rounded-3xl border-solid  text-white font-semibold  bg-red-500 mt-2 py-3 px-8 whitespace-no-wrap" %>
             </li>
           </ul>
         </div>
@@ -61,20 +70,18 @@
     var menu = document.getElementById("menu");
 
     // open/close the menu when the user clicks on the button
-    function toggleMenu() {
+    function toggleMenu(event) {
         if (menu.classList.contains('hidden')) {
             menu.classList.remove('hidden');
         } else {
             menu.classList.add('hidden');
         }
+        event.stopPropagation();
     }
 
     // close the menu when the user clicks outside of it
     window.onclick = function (event) {
-        var dropdownWrapper = document.getElementById('dropdown-wrapper');
-        if (!dropdownWrapper.contains(event.target) && !menu.classList.contains('hidden')) {
-            menu.classList.add('hidden');
-        }
+        menu.classList.add('hidden');
     }
 </script>
 

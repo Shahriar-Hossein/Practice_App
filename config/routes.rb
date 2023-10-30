@@ -1,7 +1,7 @@
 # app/config/routes.rb
 Rails.application.routes.draw do
 
-  root 'pages#index'
+  root 'posts#index'
   # get 'pages/index'
 
   devise_for  :users,
@@ -11,10 +11,11 @@ Rails.application.routes.draw do
               }
 
     # get 'user/profile', to: 'users/registrations#show'
-  devise_scope :user do
-    get 'profile', to: 'users/registrations#show'
-  end
-  # resource :users, only: [:show]
+  # devise_scope :user do
+  #   get 'profile', to: 'users/registrations#show'
+  # end
+
+   resource :users, only: [:show]
   # resources :posts
 
   resources :posts do

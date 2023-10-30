@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params) do |c|
       c.user = current_user
-      c.commenter = current_user.email
+      c.commenter = current_user.name + " "+ current_user.lastName
     end
     redirect_to post_path(@post)
   end

@@ -1,21 +1,44 @@
-
-<div class=" flex mx-5 px-4 ml-2">
-  <div class="mx-1 my-1 px-2">
-    <strong><%= comment.commenter %> </strong>
-    <br>
-    <%= comment.body %>
+<% unless comment.id == nil %>
+  <div class="flex  rounded-lg p-4 m-4 ">
+    <div class="w-12 mt-1 ">
+      <% if comment.user.image.attached? %>
+        <%=image_tag comment.user.image, class:"w-10 h-10 mr-5 rounded-full "%>
+      <% end %>
+    </div>
+    <div class=" grow">
+      <div class="flex justify-between mx-1 my-1 px-2 ">
+        <div class="flex justify-between">
+          <p class=" font-semibold text-xl"><%= comment.user.name + " " + comment.user.lastName %> </p>
+          <p class="mx-10"><%= time_ago_in_words(comment.created_at) %> ago </p>
+        </div>
+        <div  class="">
+          <% if can? :update, comment %>
+            <ul class="flex  bg-gray-200 shadow rounded-lg ">
+              <li>
+                <%= link_to edit_post_comment_path(comment.post,comment),
+                            class: "block px-4 py-2   whitespace-nowrap" do %>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" id="Edit" class="w-5 h-6 "><path d="M6 34.5V42h7.5l22.13-22.13-7.5-7.5L6 34.5zm35.41-20.41c.78-.78.78-2.05 0-2.83l-4.67-4.67c-.78-.78-2.05-.78-2.83 0l-3.66 3.66 7.5 7.5 3.66-3.66z" fill="#34a853" class="color000000 svgShape"></path><path fill="none" d="M0 0h48v48H0z"></path></svg>
+              <% end %>
+              </li>
+              <li><%= link_to [comment.post, comment], data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    }, class: "block px-4 py-2 whitespace-nowrap" do
+                  %>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="delete" class="w-5 h-6 ">
+                  <path d="M128 405.429C128 428.846 147.198 448 170.667 448h170.667C364.802 448 384 428.846 384 405.429V160H128v245.429zM416 96h-80l-26.785-32H202.786L176 96H96v32h320V96z" fill="#d85b53" class="color000000  svgShape">
+                  </path>
+                </svg>
+                <% end %>
+              </li>
+            </ul>
+          <% end  %>
+        </div>
+      </div>
+      <div class=" mx-3 text-wrap">
+        <%= comment.body %>
+      </div>
+    </div>
   </div>
-    <ul class="flex  ">
-      <% if can? :update, comment %>
-        <li class="mx-5"><%= link_to 'Edit', edit_post_comment_path(comment.post,comment) %></li>
-        <li><%= link_to 'Delete',
-                    [comment.post, comment], data: {
-            turbo_method: :delete,
-            turbo_confirm: "Are you sure?"
-          }
-        %>
-        </li>
-      <% end  %>
-    </ul>
+<% end %>
 
-</div>

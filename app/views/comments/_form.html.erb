@@ -1,14 +1,12 @@
+
 <%= form_with model: [ @post, @post.comments.build ] do |form| %>
+  <div class="flex">
+    <%= form.text_field :body , class:"w-full h-20 rounded-full " ,  placeholder: "     Write a comment..."%>
+    <%=  form.button do  %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon ml-2" style="width: 2em;height: 2em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1"><path d="M0 950.857143l1024-438.857143L0 73.142857v341.333333l731.428571 97.52381-731.428571 97.52381z"/></svg>
+    <% end %>
+  </div>
 
-
-    <%= hidden_field :commenter, value: current_user.email %>
-
-  <p>
-    <%# form.label :body %>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
 <% end %>
 
+<!--<svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="60px" height="60px" viewBox="0 0 32 32" id="icon"><defs><style>.cls-1{fill:none;}</style></defs><title>add-comment</title><path d="M17.74,30,16,29l4-7h6a2,2,0,0,0,2-2V8a2,2,0,0,0-2-2H6A2,2,0,0,0,4,8V20a2,2,0,0,0,2,2h9v2H6a4,4,0,0,1-4-4V8A4,4,0,0,1,6,4H26a4,4,0,0,1,4,4V20a4,4,0,0,1-4,4H21.16Z" transform="translate(0 0)"/><polygon points="17 9 15 9 15 13 11 13 11 15 15 15 15 19 17 19 17 15 21 15 21 13 17 13 17 9"/><rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/></svg>-->
