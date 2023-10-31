@@ -54,7 +54,7 @@
         <h2 class="font-semibold mr-3">All Comments</h2>
         (<%= @post.comments.count %>)
       </div>
-      <%= render @post.comments.reverse  %>
+      <%= render @post.comments.order("created_at DESC")  %>
     </div>
   </div>
 </div>

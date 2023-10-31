@@ -8,4 +8,7 @@ class Comment < ApplicationRecord
     minimum: 5
   }
 
+  # def self.sorted_fun
+  #   find(:all,:order=> 'created_at DESC')
+  # end
 end
