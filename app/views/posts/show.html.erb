@@ -18,14 +18,14 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16"> <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/> </svg>
         </div>
         <% if can? :update, @post %>
-          <ul id="postButton" class="mt-4 hidden absolute shadow rounded-lg right-0 bg-gray-200 px-2 py-2 top-5">
+          <ul id="postButton" class="mt-4 hidden absolute shadow-md rounded-lg right-0 bg-gray-200 px-2 py-4 top-5">
             <li>
-              <%= link_to edit_post_path(@post), class:" rounded-t bg-gray-100 my-2" do  %>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" id="Edit" class="w-6 h-7 "><path d="M6 34.5V42h7.5l22.13-22.13-7.5-7.5L6 34.5zm35.41-20.41c.78-.78.78-2.05 0-2.83l-4.67-4.67c-.78-.78-2.05-.78-2.83 0l-3.66 3.66 7.5 7.5 3.66-3.66z" fill="#34a853" class="color000000 svgShape"></path><path fill="none" d="M0 0h48v48H0z"></path></svg>
+              <%= link_to edit_post_path(@post), class:" rounded-t bg-gray-100 my-2 " do  %>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" id="Edit" class="w-6 h-7 mb-2"><path d="M6 34.5V42h7.5l22.13-22.13-7.5-7.5L6 34.5zm35.41-20.41c.78-.78.78-2.05 0-2.83l-4.67-4.67c-.78-.78-2.05-.78-2.83 0l-3.66 3.66 7.5 7.5 3.66-3.66z" fill="#34a853" class="color000000 svgShape"></path><path fill="none" d="M0 0h48v48H0z"></path></svg>
               <% end %>
             </li>
             <li>
-              <%= link_to post_path(@post), class:"rounded-t bg-gray-100 my-2", data: {
+              <%= link_to post_path(@post), class:"rounded-t bg-gray-100 my-2 ", data: {
                 turbo_method: :delete,
                 turbo_confirm: "Are you sure?" } do  %>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="delete" class="w-6 h-7 ">
@@ -47,7 +47,10 @@
         <%= render 'comments/form' %>
     <% end %>
     <div class="w-full m-1 divide-y-2">
-      <h2 class="m-9">All Comments</h2>
+      <div class="flex m-9">
+        <h2 class="font-semibold mr-3">All Comments</h2>
+        (<%= @post.comments.count %>)
+      </div>
       <%= render @post.comments.reverse  %>
     </div>
   </div>
