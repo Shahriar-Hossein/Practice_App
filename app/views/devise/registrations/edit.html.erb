@@ -7,7 +7,7 @@
     }
 </style>
 <div class="bg-green-50 p-8 shadow-md text-center rounded-3xl">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2 class="text-2xl text-green-500 font-bold mb-4 mr-14">Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -54,7 +54,7 @@
     <!-- Image Upload Field with an Icon -->
     <div class="mb-4">
       <i class="fas fa-image input-icon"></i>
-      <%= f.file_field :image, class: "input rounded-3xl", accept: 'image/png, image/jpeg, image/jpg', autofocus: true %>
+      <%= f.file_field :image, class: "input", accept: 'image/png, image/jpeg, image/jpg', autofocus: true %>
     </div>
 
     <!-- Email Field with an Icon -->
@@ -66,7 +66,7 @@
     <!-- Password Field with an Icon -->
     <div class="mb-4">
       <% if @minimum_password_length %>
-        <em>Password <%= @minimum_password_length %> characters minimum</em>
+        <em class="ml-6">Password <%= @minimum_password_length %> characters minimum</em>
       <% end %><br />
       <i class="fas fa-lock input-icon"></i>
       <%= f.password_field :password, class: "input rounded-3xl", placeholder: "New Password" %>
@@ -78,15 +78,15 @@
       <%= f.password_field :password_confirmation, class: "input rounded-3xl", placeholder: "Confirm Password" %>
     </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+    <div class="actions mb-4">
+      <button type="submit" class="bg-green-300 px-8 text-center rounded-3xl text-white font-bold py-2 px-4 rounded cursor-pointer mr-14">Update</button>
+    </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3 class="bg-blue-500 text-white font-bold py-2 px-4 rounded cursor-pointer">Cancel my account</h3>
 
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+<div class="bg-blue-500 text-white font-bold py-2 px-4 rounded cursor-pointer">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
-<%= link_to "Back", :back %>
+<div class="bg-green-300 px-8 text-center rounded-3xl mt-4 text-white font-bold py-2 px-4 rounded cursor-pointer mr-14"><%= link_to "Back", :back %></div>
   </div>
 </div>

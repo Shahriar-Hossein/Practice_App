@@ -7,7 +7,7 @@
     }
 </style>
 <div class="bg-green-50 p-8 shadow-md text-center rounded-3xl">
-  <h2 class="text-2xl font-bold mb-4 mr-14">Sign up</h2>
+  <h2 class="text-2xl text-green-500 font-bold mb-4 mr-14">Sign up</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -53,7 +53,7 @@
       <!-- Image Upload Field with an Icon -->
       <div class="mb-4">
         <i class="fas fa-image input-icon"></i>
-        <%= f.file_field :image, class: "input rounded-3xl", accept: 'image/png, image/jpeg, image/jpg', autofocus: true %>
+        <%= f.file_field :image, class: "input ", accept: 'image/png, image/jpeg, image/jpg', autofocus: true %>
       </div>
 
       <!-- Email Field with an Icon -->
@@ -65,7 +65,7 @@
       <!-- Password Field with an Icon -->
       <div class="mb-4">
         <% if @minimum_password_length %>
-          <em>Password <%= @minimum_password_length %> characters minimum</em>
+          <em class="ml-6">Password <%= @minimum_password_length %> characters minimum</em>
         <% end %><br />
         <i class="fas fa-lock input-icon"></i>
         <%= f.password_field :password, class: "input rounded-3xl", placeholder: "New Password" %>
@@ -77,9 +77,10 @@
         <%= f.password_field :password_confirmation, class: "input rounded-3xl", placeholder: "Confirm Password" %>
       </div>
     <div class="actions mb-4">
-      <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded cursor-pointer mr-14">Sign up</button>
+      <button type="submit" class="bg-green-300 px-8 text-center rounded-3xl text-white font-bold py-2 px-4 rounded cursor-pointer mr-14">Sign up</button>
+      <p class="text-center text-gray-600">If you already have an account ? <%= render "devise/shared/links" %></p>
     </div>
-  <% end %>
-  <p class="text-center text-gray-600">If you already have an account, <%= render "devise/shared/links" %></p>
-</div>
+    <% end %>
+    <p class="text-center ml-2.5 text-gray-600">If you already have an account ? <%= render "devise/shared/links" %></p>
+  </div>
 </div>
