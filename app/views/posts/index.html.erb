@@ -3,9 +3,9 @@
     <% @posts.reverse_each do |p| %>
       <li class="py-4">
         <div class="text-left">
-          <div class="">
+          <div class="flex">
             <% if p.picture.attached? %>
-              <%= image_tag p.picture, class: "w-fit h-96 rounded-3xl mb-6 grow" %>
+              <%= image_tag p.picture, class: "h-96 rounded-3xl mb-6 grow" %>
             <% end %>
           </div>
           <div class="flex ">

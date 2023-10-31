@@ -1,8 +1,10 @@
 <div class="text-left my-4">
   <div class="bg-green-50 shadow-xl rounded-lg p-5 my-4 py-9">
-    <% if @post.picture.attached? %>
-      <%= image_tag @post.picture, class: "w-fit h-96 rounded-3xl"%><br/>
-    <% end %>
+    <div class="flex">
+      <% if @post.picture.attached? %>
+        <%= image_tag @post.picture, class: "h-96 rounded-3xl mb-6 grow" %>
+      <% end %>
+    </div>
     <div class="flex justify-between  ">
       <div class="flex">
           <%= image_tag @post.user.image, class: "w-16 h-16 rounded-full mr-6" %>
@@ -14,10 +16,11 @@
         </div>
       </div>
       <div  class="dropdown   relative space-x-1">
+          <% if can? :update, @post %>
         <div onclick ="toggleComment(event)" class=" font-semibold py-3 px-1 rounded inline-flex cursor-pointer">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16"> <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/> </svg>
         </div>
-        <% if can? :update, @post %>
+
           <ul id="postButton" class="mt-4 hidden absolute shadow-md rounded-lg right-0 bg-gray-200 px-2 py-4 top-5">
             <li>
               <%= link_to edit_post_path(@post), class:" rounded-t bg-gray-100 my-2 " do  %>
