@@ -97,11 +97,14 @@
           <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-lock input-icon text-xs"></i>
         </div>
         </div>
-    <div class="actions mb-4">
-      <button type="submit" class="bg-green-300 px-8 text-center rounded-3xl text-white font-bold py-2 px-4 rounded cursor-pointer mr-14">Sign up</button>
-      <p class="text-center text-gray-600">If you already have an account ? <%= render "devise/shared/links" %></p>
+    <div class=" flex-colun items-center actions ">
+      <div align="center">
+        <button  type="submit" class="block text-md cursor-pointer tracking-wider rounded-3xl border-solid text-white font-semibold bg-green-500 my-3 py-3 px-8 whitespace-no-wrap ">Sign up</button>
+      </div>
+      <div>
+        <p class="text-center text-gray-600">If you already have an account ? <%= render "devise/shared/links" %></p>
+      </div>
     </div>
     <% end %>
-    <p class="text-center ml-2.5 text-gray-600">If you already have an account ? <%= render "devise/shared/links" %></p>
   </div>
 </div>
