@@ -6,7 +6,7 @@
         font-size: 18px; /* Adjust the icon size */
     }
 </style>
-<div class="bg-green-50 p-8 shadow-md w-[700px] text-center rounded-3xl">
+<div class="bg-green-50 p-8 shadow-md  text-center rounded-3xl">
   <h2 class="text-2xl text-green-500 font-bold mb-4 mr-14">Sign up</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -93,11 +93,11 @@
       <!-- Password Confirmation Field with an Icon -->
       <div class="mb-8 flex">
         <div class="relative w-full">
-        <%= f.password_field :password_confirmation, class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200", placeholder: "Confirm Password" %>
+          <%= f.password_field :password_confirmation, class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200", placeholder: "Confirm Password" %>
           <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-lock input-icon text-xs"></i>
         </div>
-        </div>
-    <div class=" flex items-center actions ">
+      </div>
+      <div class=" flex items-center actions ">
         <button  type="submit" class="block text-md cursor-pointer tracking-wider rounded-3xl border-solid text-white font-semibold bg-green-500 py-3 px-6">Sign up</button>
         <p class="text-center text-gray-600 text-sm ml-6">Already have account? <%= render "devise/shared/links" %></p>
       </div>
