@@ -15,7 +15,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super
+    super do |resource|
+      if resource.errors.any?
+        flash[:error] = "Errors prohibited this user from being saved:<br>"
+        resource.errors.full_messages.each do |message|
+          flash[:error] += "<li>#{message}</li>"
+        end
+        flash[:error] += "<br>"
+        flash[:error].html_safe
+      end
+    end
   end
 
   # GET /resource/edit

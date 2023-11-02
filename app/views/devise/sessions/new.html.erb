@@ -1,27 +1,29 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<style>
-    .input-icon {
-        margin-right: 10px; /* Adjust the space between the icon and the input field */
-        color: #777; /* Change the icon color as needed */
-        font-size: 18px; /* Adjust the icon size */
-    }
-</style>
-
-<div class="bg-green-50 p-8 shadow-md  text-center rounded-3xl">
+<div class="bg-green-50 p-8 shadow-md text-center rounded-3xl">
   <h2 class="text-2xl text-green-500 font-bold mb-4 mr-14">LOGIN</h2>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <% if notice %>
+    <p class="bg-green-200 text-green-700 p-3 rounded-md mb-4"><%= notice %></p>
+  <% end %>
 
+  <% if alert %>
+    <p class="bg-red-200 text-red-700 p-3 rounded-md mb-4"><%= alert %></p>
+  <% end %>
+
+  <% if flash[:error] %>
+    <p class="bg-red-200 text-red-700 p-3 rounded-md mb-4"><%= flash[:error] %></p>
+  <% end %>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="mb-6 flex justify-center">
       <div class="relative">
-      <%= f.text_field :login,class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200 focus:ring-1-black-300", autofocus: true, placeholder: "Username OR Email"%>
+        <%= f.text_field :login, class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200 focus:ring-1-black-300", autofocus: true, placeholder: "Username OR Email" %>
         <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-user input-icon text-xs"></i>
       </div>
     </div>
 
     <div class="mb-6 flex justify-center">
       <div class="relative">
-      <%= f.password_field :password, class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200 focus:ring-1-black-300", placeholder: "Enter Your Password" %>
+        <%= f.password_field :password, class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200 focus:ring-1-black-300", placeholder: "Enter Your Password" %>
         <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-lock input-icon text-xs"></i>
       </div>
     </div>
