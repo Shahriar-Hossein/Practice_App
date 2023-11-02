@@ -13,14 +13,14 @@
         </div>
         <div  class="">
           <% if can? :update, comment %>
-            <ul class="flex  bg-gray-200 shadow rounded-lg ">
-              <li class="hover:bg-gray-300">
+            <ul class="flex  bg-gray-200 shadow rounded-2xl ">
+              <li class="hover:bg-gray-300 hover:rounded-2xl">
                 <%= link_to edit_post_comment_path(comment.post,comment),
                             class: "block px-4 py-2  " do %>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" id="Edit" class="w-5 h-6 "><path d="M6 34.5V42h7.5l22.13-22.13-7.5-7.5L6 34.5zm35.41-20.41c.78-.78.78-2.05 0-2.83l-4.67-4.67c-.78-.78-2.05-.78-2.83 0l-3.66 3.66 7.5 7.5 3.66-3.66z" fill="#34a853" class="color000000 svgShape"></path><path fill="none" d="M0 0h48v48H0z"></path></svg>
               <% end %>
               </li>
-              <li class="hover:bg-gray-300">
+              <li class="hover:bg-gray-300 hover:rounded-2xl">
                 <%= link_to [comment.post, comment], data: {
                       turbo_method: :delete,
                       turbo_confirm: "Are you sure?"
