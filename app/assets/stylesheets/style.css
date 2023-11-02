@@ -5,13 +5,34 @@
 
 }
 
-input[type=text], textarea {
+input[type=text], textarea,input[type=password],input[type=checkbox],input[type=email],input[type=file],input[type=date] {
     border: 1px solid rgb(74 222 128);
     outline: none;
-    background-color: rgb(243 244 246)
+    background-color: rgb(243 244 246);
+
+}
+input[type=checkbox]:checked {
+    background-color: rgb(34 197 94);
+    border-color: green;
+    color: rgb(34 197 94);
+    --tw-ring-color: rgb(34 197 94);
 }
 
-input[type=text]:focus, textarea:focus {
+input[type=radio]:checked {
+    background-color: rgb(34 197 94);
+    border-color: none;
+    color: rgb(34 197 94);
+    --tw-ring-color: rgb(34 197 94);
+}
+
+
+input[type=checkbox]:hover {
+
+}
+
+input[type=text]:focus, textarea:focus,input[type=password]:focus,
+input[type=checkbox]:focus,input[type=radio]:focus,
+input[type=email]:focus,input[type=file]:focus,input[type=date]:focus {
     /*border: solid rgb(74 222 128);*/
     --tw-ring-color: rgb(34 197 94);
     border-color:rgb(74 222 128);
