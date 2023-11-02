@@ -9,9 +9,12 @@ class Users::Sessions::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super do |resource|
+      if resource.errors.any?
+        flash[:alert] = "Invalid Login or Password"
+      end
+  end
 
   # DELETE /resource/sign_out
   # def destroy

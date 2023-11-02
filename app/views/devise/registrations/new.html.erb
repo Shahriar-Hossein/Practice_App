@@ -9,10 +9,25 @@
 <div class="bg-green-50 p-8 shadow-md  text-center rounded-3xl">
   <h2 class="text-2xl text-green-500 font-bold mb-4 mr-14">Sign up</h2>
 
+  <% if notice %>
+    <p class="bg-green-200 text-green-700 p-3 rounded-md mb-4"><%= notice %></p>
+  <% end %>
+
+  <% if alert %>
+    <p class="bg-red-200 text-red-700 p-3 rounded-md mb-4"><%= alert %></p>
+  <% end %>
+
+  <div class="flash-messages">
+    <% if flash[:error].present? %>
+      <div class="bg-red-200 text-red-700 p-3 rounded-md mb-4">
+        <%= flash[:error].html_safe %>
+      </div>
+    <% end %>
+  </div>
+
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="text-left w-[420px] inline-block">
-
+    <div class="text-left w-fit inline-block">
       <div class="mb-6 flex">
         <div class="relative w-full">
         <%= f.text_field :username, class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200 focus:ring-1-black-300", autofocus: true, placeholder: "Username" %>
@@ -44,19 +59,19 @@
       </div>
 
       <!-- Gender Radio Buttons with Icons -->
-      <div class="radio-buttons mb-6">
-        <i class="fas fa-male input-icon"></i>
-        <%= f.radio_button :gender, 'Male', class: "input rounded-3xl ml-2",autofocus: true %>
+      <div class="radio-buttons ml-4 mb-6">
+        <i class="fas fa-male input-icon text-2xl"></i>
+        <%= f.radio_button :gender, 'Male', class: "input rounded-3xl", autofocus: true %>
         <%= label :gender_male, 'Male', class: "label" %>
-        <i class="fas fa-female input-icon ml-2"></i>
-        <%= f.radio_button :gender, 'Female', class: "input rounded-3xl", autofocus: true %>
+        <i class="fas fa-female input-icon text-2xl ml-8"></i>
+        <%= f.radio_button :gender, 'Female', class: "input mlrounded-3xl", autofocus: true %>
         <%= label :gender_female, 'Female', class: "label" %>
       </div>
 
       <!-- Date of Birth Field with an Icon -->
       <div class="mb-6 flex">
         <div class="relative w-full">
-        <%= f.date_field :date_of_birth, class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200", autofocus: true, placeholder: "Date of Birth" %>
+        <%= f.date_field :date_of_birth, class: "input rounded-3xl w-full border-0 py-2 pl-10 bg-gray-200", autofocus: true, placeholder: "Date of Birth" %>
           <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-calendar-alt input-icon text-xs"></i>
         </div>
         </div>
@@ -64,7 +79,7 @@
       <!-- Image Upload Field with an Icon -->
       <div class="mb-6 flex">
         <div class="relative w-full">
-        <%= f.file_field :image, class:"input rounded-3xl w-full border-0 pl-10 bg-gray-200", accept: 'image/png, image/jpeg, image/jpg', autofocus: true %>
+        <%= f.file_field :image, class:"input rounded-3xl w-full border-0 py-2 pl-10 bg-gray-200", accept: 'image/png, image/jpeg, image/jpg', autofocus: true %>
           <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-image input-icon text-xs"></i>
         </div>
         </div>
@@ -72,7 +87,7 @@
       <!-- Email Field with an Icon -->
       <div class="mb-6 flex">
         <div class="relative w-full">
-        <%= f.email_field :email, class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200", autofocus: true, placeholder: "Email" %>
+        <%= f.email_field :email, class: "input rounded-3xl w-full border-0 py-2 pl-10 bg-gray-200", autofocus: true, placeholder: "Email" %>
           <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-envelope input-icon text-xs"></i>
         </div>
         </div>
