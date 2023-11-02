@@ -102,23 +102,20 @@
       <div class="field">
         <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
       </div>
-        <div class="mb-4 flex">
-          <div class="relative w-full">
-        <%= f.password_field :current_password,  class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200", placeholder: "Current Password" %>
-            <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-lock input-icon text-xs"></i>
-      </div>
+      <div class="mb-4 flex">
+        <div class="relative w-full">
+          <%= f.password_field :current_password,  class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200", placeholder: "Current Password" %>
+          <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-lock input-icon text-xs"></i>
         </div>
-
-      <div class="text-center actions ">
-        <%= f.submit "Update", class:"mb-6 text-md cursor-pointer tracking-wider rounded-3xl border-solid text-white font-semibold bg-green-500 hover:bg-green-700 py-3 px-6"%>
       </div>
-  <% end %>
+      <div class="flex justify-center my-2 ">
+        <%= f.submit "Update", class:"mr-5 py-3 px-4 text-md cursor-pointer tracking-wider rounded-3xl text-white font-semibold bg-green-500 hover:bg-green-700 "%>
+        <%= link_to "Back", :back, class:"py-3 px-4 text-md cursor-pointer tracking-wider rounded-3xl text-white font-semibold bg-red-500 hover:bg-red-700   " %>
+      </div>
+<% end %>
 
 <!--  <h3>Cancel my account</h3>-->
 
 <!--  <div>Unhappy? <%#= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>-->
-  <div class="text-center">
-  <%= link_to "Back", :back, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-3xl" %>
-  </div>
   </div>
 </div>
