@@ -33,7 +33,8 @@
             <li class="flex bg-gray-200 items-center mt-8 rounded-lg">
                 <%= link_to image_tag(current_user.image, class: "h-14 w-14 rounded-full center"), users_path, class: "px-4 py-2"  %>
                 <div class="flex-column">
-                    <%= link_to "#{current_user.name}", users_path, class: "rounded-t  pt-4 pr-10 block whitespace-no-wrap"  %>
+                    <%#= link_to "#{current_user.name} #{current_user.lastName}", users_path, class: "font-semibold rounded-t  pt-4 pr-10 block whitespace-no-wrap"  %>
+                    <%= link_to "#{current_user.username}", users_path, class: "font-semibold rounded-t  pt-4 pr-10 block whitespace-no-wrap"  %>
                     <%= link_to "#{current_user.email}", users_path, class: "rounded-t pb-4 pr-10 block whitespace-no-wrap"  %>
                 </div>
               <%= link_to edit_user_registration_path, class:"py-7 px-5 rounded-t block" do  %>
