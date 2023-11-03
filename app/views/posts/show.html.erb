@@ -2,7 +2,7 @@
   <div class="bg-green-50 shadow-xl rounded-lg p-5 my-4 py-9">
     <div class="flex">
       <% if @post.picture.attached? %>
-        <%= image_tag @post.picture, class: "h-96 rounded-3xl mb-6 grow" %>
+        <%= image_tag @post.picture, class: "h-[35rem] rounded-3xl mb-6 grow" %>
       <% end %>
     </div>
     <div class="flex justify-between  ">
@@ -16,18 +16,17 @@
         </div>
       </div>
       <div  class="dropdown   relative space-x-1">
-          <% if can? :update, @post %>
-        <div onclick ="toggleComment(event)" class=" font-semibold py-3 px-1 rounded inline-flex cursor-pointer">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16"> <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/> </svg>
-        </div>
-
-          <ul id="postButton" class="mt-4 hidden absolute shadow-md rounded-lg right-0 bg-gray-200 px-2 py-4 top-5">
-            <li>
+        <% if can? :update, @post %>
+          <div onclick ="toggleComment(event)" class=" font-semibold py-3 px-1 rounded inline-flex cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16"> <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/> </svg>
+          </div>
+          <ul id="postButton" class="mt-4 hidden absolute shadow-lg rounded-lg right-0 bg-gray-200 px-2 py-4 top-5">
+            <li class="hover:bg-gray-300 hover:rounded-2xl">
               <%= link_to edit_post_path(@post), class:" rounded-t bg-gray-100 my-2 " do  %>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" id="Edit" class="w-6 h-7 mb-2"><path d="M6 34.5V42h7.5l22.13-22.13-7.5-7.5L6 34.5zm35.41-20.41c.78-.78.78-2.05 0-2.83l-4.67-4.67c-.78-.78-2.05-.78-2.83 0l-3.66 3.66 7.5 7.5 3.66-3.66z" fill="#34a853" class="color000000 svgShape"></path><path fill="none" d="M0 0h48v48H0z"></path></svg>
               <% end %>
             </li>
-            <li>
+            <li class="hover:bg-gray-300 hover:rounded-2xl">
               <%= link_to post_path(@post), class:"rounded-t bg-gray-100 my-2 ", data: {
                 turbo_method: :delete,
                 turbo_confirm: "Are you sure?" } do  %>

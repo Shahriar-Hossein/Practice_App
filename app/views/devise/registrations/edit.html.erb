@@ -8,7 +8,23 @@
 </style>
 <div class="bg-green-50 p-8 shadow-md text-center rounded-3xl">
 <h2 class="text-2xl text-green-500 font-bold mb-4 mr-14">Edit <%= resource_name.to_s.humanize %></h2>
-
+  <div class="flash-messages">
+    <% if flash[:error].present? %>
+      <div class="bg-red-400 text-white p-4 rounded-md shadow-md mb-4 transform hover:scale-105 hover:rotate-2 transition-transform">
+        <div class="flex justify-center">
+          <div class="mr-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </div>
+          <div class="text-left ml-14">
+            <span class="text-lg font-semibold">Error!</span>
+            <p class="text-sm mr-10"><%= flash[:error].html_safe %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -100,25 +116,22 @@
       </div>
 
       <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.label :current_password %> <i>Need your current password</i><br />
       </div>
-        <div class="mb-4 flex">
-          <div class="relative w-full">
-        <%= f.password_field :current_password,  class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200", placeholder: "Current Password" %>
-            <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-lock input-icon text-xs"></i>
-      </div>
+      <div class="mb-4 flex">
+        <div class="relative w-full">
+          <%= f.password_field :current_password,  class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200", placeholder: "Current Password" %>
+          <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-lock input-icon text-xs"></i>
         </div>
-
-      <div class="text-center actions ">
-        <%= f.submit "Update", class:"mb-6 text-md cursor-pointer tracking-wider rounded-3xl border-solid text-white font-semibold bg-green-500 hover:bg-green-700 py-3 px-6"%>
       </div>
-  <% end %>
+      <div class="flex justify-center my-2 ">
+        <%= f.submit "Update", class:"mr-5 py-3 px-4 text-md cursor-pointer tracking-wider rounded-3xl text-white font-semibold bg-green-500 hover:bg-green-700 "%>
+        <%= link_to "Back", :back, class:"py-3 px-4 text-md cursor-pointer tracking-wider rounded-3xl text-white font-semibold bg-red-500 hover:bg-red-700   " %>
+      </div>
+<% end %>
 
 <!--  <h3>Cancel my account</h3>-->
 
 <!--  <div>Unhappy? <%#= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>-->
-  <div class="text-center">
-  <%= link_to "Back", :back, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-3xl" %>
-  </div>
   </div>
 </div>

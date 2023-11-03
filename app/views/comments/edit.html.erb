@@ -1,17 +1,17 @@
 <div class="bg-green-50 shadow-xl rounded-lg  p-5 my-4 py-9 px-20">
-  <p class="font-bold text-2xl mb-4 text-center">Edit Comment</p>
+  <p class="font-bold text-3xl text-green-500 mb-4 text-center">Edit Comment</p>
 
   <div class="flex-column ">
     <%= form_with model: [ @post, @comment]   do |form| %>
-        <%= form.text_field :body , class:"w-full h-20 rounded-full " ,  placeholder: " Edit comment"%>
-        <div align="center">
-        <%= form.button do %>
-          <div class="text-xl cursor-pointer tracking-wider rounded-3xl border-solid  text-white font-semibold  bg-green-500 mt-2 py-3 px-8 whitespace-no-wrap">
-            Update
-          </div>
-          <%end %>
+        <%= form.text_area :body, rows:3, class:"mt-2 pl-5 w-full rounded-3xl " ,  placeholder: "Edit comment"%>
+        <div class="flex justify-center my-4">
+          <%= form.button class:"flex" do %>
+            <div class="text-xl cursor-pointer tracking-wider rounded-3xl border-solid text-white font-semibold bg-green-500 hover:bg-green-700 mt-2 py-3 px-8 whitespace-no-wrap">
+              Update
+            </div>
+            <%end %>
+          <%= link_to "Back", :back, class: "bg-red-500 hover:bg-red-700 focus:shadow-lg text-lg tracking-wider rounded-3xl text-white font-semibold mt-2 py-3 px-8 mx-2" %>
         </div>
-    <% end %>
-    <%= link_to "Back", :back, class: "bg-red-500 hover:bg-red-700 focus:shadow-lg text-lg tracking-wider rounded-3xl text-white font-semibold mt-2 py-3 px-8 mx-2" %>
+  <% end %>
   </div>
 </div>

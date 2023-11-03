@@ -29,13 +29,31 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
-    super
-  end
+    super do |resource|
+      if resource.errors.any?
+        flash[:error] = "Errors prohibited this user from being saved:<br>"
+        resource.errors.full_messages.each do |message|
+          flash[:error] += "<li>#{message}</li>"
+        end
+        flash[:error] += "<br>"
+        flash[:error].html_safe
+      end
+    end
+    end
 
   # PUT /resource
   def update
-    super
+    super do |resource|
+      if resource.errors.any?
+        flash[:error] = "Errors prohibited this user from being saved:<br>"
+        resource.errors.full_messages.each do |message|
+          flash[:error] += "<li>#{message}</li>"
+        end
+        flash[:error] += "<br>"
+        flash[:error].html_safe
+      end
   end
+end
 
   # DELETE /resource
   # def destroy

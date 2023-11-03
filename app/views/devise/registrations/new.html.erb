@@ -70,14 +70,16 @@
       </div>
 
       <!-- Gender Radio Buttons with Icons -->
-      <div class="radio-buttons ml-4 mb-6">
+
+      <div class="radio-buttons flex ml-4 mb-6">
         <i class="fas fa-male input-icon text-2xl"></i>
-        <%= f.radio_button :gender, 'Male', class: "input rounded-3xl", autofocus: true %>
+        <%= f.radio_button :gender, 'Male', class: "input mt-1 rounded-3xl", autofocus: true %>
         <%= label :gender_male, 'Male', class: "label font-semibold" %>
         <i class="fas fa-female input-icon text-2xl ml-8"></i>
-        <%= f.radio_button :gender, 'Female', class: "input rounded-3xl", autofocus: true %>
+        <%= f.radio_button :gender, 'Female', class: "input mt-1 rounded-3xl", autofocus: true %>
         <%= label :gender_female, 'Female', class: "label font-semibold" %>
       </div>
+
 
       <!-- Date of Birth Field with an Icon -->
       <div class="mb-6 flex">
