@@ -1,7 +1,7 @@
 
 <%= form_with model: [ @post, @post.comments.build ] do |form| %>
   <div class="flex">
-    <%= form.text_field :body , class:"w-full h-16 rounded-full pl-9" ,  placeholder: "Write a comment..."%>
+    <%= form.text_field :body , class:"mt-2 pl-5 w-full h-14 rounded-3xl " ,  placeholder: "Write a comment..."%>
     <%=  form.button do  %>
       <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon text-green-500 hover:text-green-700 ml-2" style="width: 2em;height: 2em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1"><path d="M0 950.857143l1024-438.857143L0 73.142857v341.333333l731.428571 97.52381-731.428571 97.52381z"/></svg>
     <% end %>

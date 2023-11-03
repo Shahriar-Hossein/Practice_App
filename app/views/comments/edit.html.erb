@@ -3,7 +3,7 @@
 
   <div class="flex-column ">
     <%= form_with model: [ @post, @comment]   do |form| %>
-        <%= form.text_field :body , class:"pl-5 w-full h-20 rounded-full " ,  placeholder: "Edit comment"%>
+        <%= form.text_field :body , class:"mt-2 pl-5 w-full h-14 rounded-3xl " ,  placeholder: "Edit comment"%>
         <div class="flex justify-center my-4">
           <%= form.button class:"flex" do %>
             <div class="text-xl cursor-pointer tracking-wider rounded-3xl border-solid text-white font-semibold bg-green-500 hover:bg-green-700 mt-2 py-3 px-8 whitespace-no-wrap">
