@@ -59,12 +59,22 @@ class User < ApplicationRecord
 
   # validates :date_of_birth, attached: true
   validate :minimum_7_years_old
-
+  validate :image_type
+  # all user defined validations are here
+  private
   def minimum_7_years_old
     return if date_of_birth.blank?
 
     if date_of_birth + 7.years > Date.today
       errors.add(:date_of_birth, "ERROR. USER must be atleast 7 years old")
+    end
+  end
+
+  def image_type
+    if image.attached? && !image.content_type.in?(%('image/jpeg image/jpg image/png'))
+      errors.add(:image, 'needs to be jpg, jpeg or png')
+    elsif !image.attached?
+      errors.add(:image, 'must be added')
     end
   end
 
