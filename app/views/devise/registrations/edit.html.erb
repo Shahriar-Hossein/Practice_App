@@ -6,25 +6,25 @@
         font-size: 18px; /* Adjust the icon size */
     }
 </style>
-<div class="bg-green-50 p-8 shadow-md text-center rounded-3xl">
-<h2 class="text-2xl text-green-500 font-bold mb-4 mr-14">Edit <%= resource_name.to_s.humanize %></h2>
-  <div class="flash-messages">
-    <% if flash[:error].present? %>
-      <div class="bg-red-400 text-white p-4 rounded-md shadow-md mb-4 transform hover:scale-105 hover:rotate-2 transition-transform">
-        <div class="flex justify-center">
-          <div class="mr-3">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </div>
-          <div class="text-left ml-14">
-            <span class="text-lg font-semibold">Error!</span>
-            <p class="text-sm mr-10"><%= flash[:error].html_safe %></p>
-          </div>
+<div class="flash-messages">
+  <% if flash[:error].present? %>
+    <div class="p-4 rounded-md shadow-md mb-4 transform hover:scale-105 hover:rotate-2 transition-transform">
+      <div class="flex justify-center">
+        <div class="mr-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </div>
+        <div class="text-left ml-14 text-red-700">
+          <span class="text-lg font-semibold">Error!</span>
+          <p class="text-sm mr-10"><%= flash[:error].html_safe %></p>
         </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>
+<div class="bg-green-50 p-8 shadow-md text-center rounded-3xl">
+<h2 class="text-2xl text-green-500 font-bold mb-4 mr-14">Edit <%= resource_name.to_s.humanize %></h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
