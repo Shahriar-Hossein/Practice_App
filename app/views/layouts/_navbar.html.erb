@@ -22,7 +22,7 @@
       </div>
       <% unless user_signed_in? %>
             <%= link_to 'Sign in', new_user_session_path,
-                        class:"block text-md cursor-pointer tracking-wider rounded-3xl border-solid  text-white font-semibold  bg-green-500 hover:bg-green-700 mt-2 py-3 px-8 whitespace-no-wrap" %>
+                        class:"transition duration-300 block text-md cursor-pointer tracking-wider rounded-3xl border-solid  text-white font-semibold  bg-green-500 hover:bg-green-700 mt-2 py-3 px-8 whitespace-no-wrap" %>
       <% else %>
       <!--      Drop Down menu    -->
         <div  class="dropdown inline-block  relative space-x-1">
@@ -38,7 +38,7 @@
                     <%= link_to "#{current_user.email}", users_path, class: "rounded-t pb-4 pr-10 block whitespace-no-wrap"  %>
                 </div>
               <%= link_to edit_user_registration_path, class:"py-7 px-5 rounded-t block" do  %>
-                <svg class="w-7 h-7 text-green-700 hover:text-green-900 dark:text-white"
+                <svg class="w-7 h-7 transition duration-300 text-green-700 hover:text-green-900 dark:text-white"
                      aria-hidden="true"
                      xmlns="http://www.w3.org/2000/svg"
                      fill="currentColor"
@@ -51,7 +51,7 @@
             </li>
             <li class="mt-10" align="center">
               <%= link_to 'SIGN OUT', destroy_user_session_path , data: { turbo_method: :delete },
-                          class:"text-xl tracking-wider rounded-3xl border-solid text-white font-semibold bg-red-500 hover:bg-red-700 s mt-2 py-3 px-8 " %>
+                          class:"transition duration-300 text-xl shadow-lg tracking-wider rounded-3xl border-solid text-white font-semibold bg-red-500 hover:bg-red-700 s mt-2 py-3 px-8 " %>
             </li>
           </ul>
         </div>

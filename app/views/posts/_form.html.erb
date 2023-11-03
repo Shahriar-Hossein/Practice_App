@@ -49,7 +49,7 @@
 
   <!--  <div align="center" class="m-2 ">-->
       <div class="flex items-center justify-center content-center my-6 mt-8">
-        <%= form.button class:"transition shadow-xl text-lg tracking-wider rounded-3xl text-white font-semibold bg-green-500 hover:bg-green-700 focus:shadow-lg mt-2 py-3 px-8 mx-2 "  do %>
+        <%= form.button class:"transition duration-300 shadow-lg text-lg tracking-wider rounded-3xl text-white font-semibold bg-green-500 hover:bg-green-700 focus:shadow-lg mt-2 py-3 px-8 mx-2 "  do %>
           <div class="">
             <% if @post.id.nil?   %>
               <%= 'Create Post' %>
@@ -58,7 +58,8 @@
             <%end %>
           </div>
         <% end %>
-          <%= link_to "Back", :back, class: "bg-red-500 transition shadow-xl hover:bg-red-700 focus:shadow-lg text-lg tracking-wider rounded-3xl text-white font-semibold mt-2 py-3 px-8 mx-2" %>
+          <%= link_to "Back", :back,
+                      class:"transition duration-300 shadow-lg text-lg tracking-wider rounded-3xl text-white font-semibold bg-red-500 hover:bg-red-700 focus:shadow-lg mt-2 py-3 px-8 mx-2" %>
       </div>
   <!--  </div>-->
   </div>

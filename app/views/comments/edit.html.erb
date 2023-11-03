@@ -6,11 +6,11 @@
         <%= form.text_area :body, rows:3, class:"mt-2 pl-5 w-full rounded-3xl " ,  placeholder: "Edit comment"%>
         <div class="flex justify-center my-4">
           <%= form.button class:"flex" do %>
-            <div class="text-xl cursor-pointer tracking-wider rounded-3xl border-solid text-white font-semibold bg-green-500 hover:bg-green-700 mt-2 py-3 px-8 whitespace-no-wrap">
+            <div class="transition duration-300 text-xl tracking-wider rounded-3xl border-solid text-white shadow-lg font-semibold bg-green-500 hover:bg-green-700 mt-2 py-3 px-8 whitespace-no-wrap">
               Update
             </div>
             <%end %>
-          <%= link_to "Back", :back, class: "bg-red-500 hover:bg-red-700 focus:shadow-lg text-lg tracking-wider rounded-3xl text-white font-semibold mt-2 py-3 px-8 mx-2" %>
+          <%= link_to "Back", :back, class: "transition duration-300 text-xl bg-red-500 hover:bg-red-700 shadow-lg  tracking-wider rounded-3xl text-white font-semibold mt-2 py-3 px-8 mx-2" %>
         </div>
   <% end %>
   </div>
