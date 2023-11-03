@@ -7,7 +7,7 @@
     }
 </style>
 <div class="bg-green-50 p-8 shadow-md  text-center rounded-3xl">
-  <h2 class="text-2xl text-green-500 font-bold mb-4 mr-14">Sign up</h2>
+  <h2 class="text-2xl text-green-500 font-bold mb-4 text-center">Sign up</h2>
 
   <% if notice %>
     <p class="bg-green-200 text-green-700 p-3 rounded-md mb-4"><%= notice %></p>
@@ -19,11 +19,22 @@
 
   <div class="flash-messages">
     <% if flash[:error].present? %>
-      <div class="bg-red-200 text-red-700 p-3 rounded-md mb-4">
-        <%= flash[:error].html_safe %>
+      <div class="bg-red-400 text-white p-4 rounded-md shadow-md mb-4 transform hover:scale-105 hover:rotate-2 transition-transform">
+        <div class="flex justify-center">
+          <div class="mr-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </div>
+          <div>
+            <span class="text-lg mr-10 font-semibold">Error!</span>
+            <p class="text-sm mr-10"><%= flash[:error].html_safe %></p>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>
+
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
