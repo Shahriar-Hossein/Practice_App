@@ -12,16 +12,16 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="text-left w-[420px] inline-block">
+    <div class="text-left w-fit inline-block">
 
-      <div class="mb-4 flex">
+      <div class="mb-6 flex">
         <div class="relative w-full">
-          <%= f.text_field :username, class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200", autofocus: true, placeholder: "Username" %>
+          <%= f.text_field :username, class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200 focus:ring-1-black-300", autofocus: true, placeholder: "Username" %>
           <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-user input-icon text-xs"></i>
         </div>
       </div>
 
-      <div class="mb-4 flex">
+      <div class="mb-6 flex">
         <div class="relative w-full">
           <%= f.text_field :name, class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200", autofocus: true, placeholder: "Name" %>
           <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-user input-icon text-xs"></i>
@@ -29,7 +29,7 @@
       </div>
 
       <!-- Last Name Field with an Icon -->
-      <div class="mb-4 flex">
+      <div class="mb-6 flex">
         <div class="relative w-full">
           <%= f.text_field :lastName, class:"input rounded-3xl w-full border-0 pl-10 bg-gray-200", autofocus: true, placeholder: "Last Name" %>
           <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-user input-icon text-xs"></i>
@@ -37,7 +37,7 @@
       </div>
 
       <!-- Contact Number Field with an Icon -->
-      <div class="mb-4 flex">
+      <div class="mb-6 flex">
         <div class="relative w-full">
           <%= f.text_field :contact_number, class:"input rounded-3xl w-full border-0 pl-10 bg-gray-200", autofocus: true, placeholder: "Contact Number" %>
           <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-phone input-icon text-xs"></i>
@@ -45,35 +45,35 @@
       </div>
 
       <!-- Gender Radio Buttons with Icons -->
-      <div class="radio-buttons mb-4">
-        <i class="fas fa-male input-icon"></i>
-        <%= f.radio_button :gender, 'Male', class: "input rounded-3xl ml-2", autofocus: true %>
+      <div class="radio-buttons ml-4 mb-6">
+        <i class="fas fa-male input-icon text-2xl"></i>
+        <%= f.radio_button :gender, 'Male', class: "input rounded-3xl", autofocus: true %>
         <%= label :gender_male, 'Male', class: "label" %>
-        <i class="fas fa-female input-icon ml-2"></i>
+        <i class="fas fa-female input-icon text-2xl ml-8"></i>
         <%= f.radio_button :gender, 'Female', class: "input rounded-3xl", autofocus: true %>
         <%= label :gender_female, 'Female', class: "label" %>
       </div>
 
       <!-- Date of Birth Field with an Icon -->
-      <div class="mb-4 flex">
+      <div class="mb-6 flex">
         <div class="relative w-full">
-          <%= f.date_field :date_of_birth, class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200", autofocus: true, placeholder: "Date of Birth" %>
+          <%= f.date_field :date_of_birth, class: "input rounded-3xl w-full border-0 py-2 pl-10 bg-gray-200", autofocus: true, placeholder: "Date of Birth" %>
           <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-calendar-alt input-icon text-xs"></i>
         </div>
       </div>
 
       <!-- Image Upload Field with an Icon -->
-      <div class="mb-4 flex">
+      <div class="mb-6 flex">
         <div class="relative w-full">
-          <%= f.file_field :image, class:"input rounded-3xl w-full border-0 pl-10 bg-gray-200", accept: 'image/png, image/jpeg, image/jpg', autofocus: true %>
+          <%= f.file_field :image, class:"input rounded-3xl w-full border-0 py-2 pl-10 bg-gray-200", accept: 'image/png, image/jpeg, image/jpg', autofocus: true %>
           <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-image input-icon text-xs"></i>
         </div>
       </div>
 
       <!-- Email Field with an Icon -->
-      <div class="mb-4 flex">
+      <div class="mb-6 flex">
         <div class="relative w-full">
-          <%= f.email_field :email, class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200", autofocus: true, placeholder: "Email" %>
+          <%= f.email_field :email, class: "input rounded-3xl w-full border-0 py-2 pl-10 bg-gray-200", autofocus: true, placeholder: "Email" %>
           <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-envelope input-icon text-xs"></i>
         </div>
       </div>
@@ -84,7 +84,7 @@
           <em class="ml-6">Password <%= @minimum_password_length %> characters minimum</em>
         <% end %><br />
       </div>
-      <div class="mb-4 flex">
+      <div class="mb-6 flex">
         <div class="relative w-full">
           <%= f.password_field :password,class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200", placeholder: "New Password" %>
           <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-lock input-icon text-xs"></i>
@@ -92,7 +92,7 @@
       </div>
 
       <!-- Password Confirmation Field with an Icon -->
-      <div class="mb-4 flex">
+      <div class="mb-8 flex">
         <div class="relative w-full">
           <%= f.password_field :password_confirmation, class: "input rounded-3xl w-full border-0 pl-10 bg-gray-200", placeholder: "Confirm Password" %>
           <i class="absolute top-1/2 left-3 transform -translate-y-1/2 fas fa-lock input-icon text-xs"></i>
