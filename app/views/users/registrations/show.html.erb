@@ -1,39 +1,33 @@
 
 <% u = current_user %>
 <div class="flex-row bg-green-50 shadow-xl rounded-lg p-5 my-4 py-9 px-20">
-
-    <div class="mb-4 mx-4">
-      <p class="font-bold text-5xl mb-3 text-center"><%= u.username %>'s Profile<p>
-    </div>
-
-
-
-
-
-  <%= image_tag u.image, class:"h-96 rounded-3xl mb-6 grow" %>
+  <div class="mb-4 mx-4">
+    <p class="font-bold text-5xl mb-3 text-center"><%= u.username %>'s Profile<p>
+  </div>
+  <%= image_tag u.image, class:"h-[35rem] rounded-3xl mb-6 grow" %>
   <p class="font-semibold text-lg text-center my-2"> Profile Picture </p>
   <div class="flex items-center my-2">
-    <p class="font-semibold text-lg text-left"> First Name:&nbsp;  </p>
+    <p class="font-semibold text-lg text-left mr-2"> First Name:  </p>
     <%= u.name %>
   </div>
   <div class="flex items-center my-2">
-    <p class="font-semibold text-lg text-left"> Last Name:&nbsp;   </p>
+    <p class="font-semibold text-lg text-left mr-2"> Last Name:   </p>
     <%= u.lastName %>
   </div>
   <div class="flex items-center my-2">
-    <p class="font-semibold text-lg text-left"> Gender:&nbsp;   </p>
+    <p class="font-semibold text-lg text-left mr-2"> Gender: </p>
     <%= u.gender %>
   </div>
   <div class="flex items-center my-2">
-    <p class="font-semibold text-lg text-left"> Date Of Birth:&nbsp; </p>
+    <p class="font-semibold text-lg text-left mr-2"> Date Of Birth: </p>
     <%= u.date_of_birth %>
   </div>
   <div class="flex items-center my-2">
-    <p class="font-semibold text-lg text-left"> Contact Number:&nbsp;   </p>
+    <p class="font-semibold text-lg text-left mr-2"> Contact Number:   </p>
     <%= u.contact_number %>
   </div>
   <div class="flex items-center my-2">
-    <p class="font-semibold text-lg text-left"> Email:&nbsp;  </p>
+    <p class="font-semibold text-lg text-left mr-2"> Email:  </p>
     <%= u.email %>
   </div>
   <div class="flex justify-leftS">
@@ -49,7 +43,7 @@
         <path d="M13.243 3.2 7.359 9.081a.5.5 0 0 0-.136.256L6.51 12.9a.5.5 0 0 0 .59.59l3.566-.713a.5.5 0 0 0 .255-.136L16.8 6.757 13.243 3.2Z"/>
       </svg>
     <% end %>
-    <%= link_to " Edit Profile ", edit_user_registration_path,class:"font-semibold"  %>
+    <%= link_to "Edit Profile", edit_user_registration_path,class:"font-semibold"  %>
   </div>
   <div class="mt-10">
     <p class="text-center font-bold text-2xl mb-3">
@@ -82,7 +76,7 @@
               <!-- Set max words per line for the title -->
               <h2 class="text-4xl font-bold text-black mb-3 mt-8 break-word"><%= p.title %></h2>
               <p class="text-base text-black line-clamp-2"><%= p.body %></p><br/>
-              <%= link_to "Read More", post_path(p), class: "text-blue-500 hover:text-blue-700 font-bold" %><br/>
+              <%= link_to "Read More", post_path(p), class: "text-green-500 hover:text-green-700 font-bold" %><br/>
             </div>
           </div>
         </li>
